@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+intelligence/reddit-ads/activity-report.json
+intelligence/reddit-ads/activation-plan.json
+intelligence/reddit-ads/activation-history.json
+intelligence/reddit-ads/new-discoveries.json
+intelligence/reddit-ads/subreddits.json
