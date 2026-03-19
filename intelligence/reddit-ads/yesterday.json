@@ -3,7 +3,7 @@
   "subreddits": [
     {
       "subreddit": "dataengineering",
-      "subscribers": 440860,
+      "subscribers": 440864,
       "description": "News &amp; discussion on Data Engineering topics, including but not limited to: data pipelines, databases, data formats, storage, data modeling, data governance, cleansing, NoSQL, distributed systems,",
       "relevance_score": 59,
       "tier": "Tier 1",
@@ -151,7 +151,7 @@
     },
     {
       "subreddit": "AI_Agents",
-      "subscribers": 318878,
+      "subscribers": 318889,
       "description": "A place for discussion around the use of AI Agents and related tools. AI Agents are LLMs that have the ability to \"use tools\" or \"execute functions\" in an autonomous or semi-autonomous (also known as ",
       "relevance_score": 36,
       "tier": "Tier 2",
@@ -267,7 +267,7 @@
     },
     {
       "subreddit": "Rag",
-      "subscribers": 65478,
+      "subscribers": 65482,
       "description": "Welcome to r/Rag, the community for everything Retrieval-Augmented Generation (RAG)! RAG combines retrieval systems with generative models to create more accurate responses, enhancing applications lik",
       "relevance_score": 28,
       "tier": "Tier 3",
@@ -324,14 +324,14 @@
     },
     {
       "subreddit": "LLMDevs",
-      "subscribers": 137597,
+      "subscribers": 137602,
       "description": "A space for Enthusiasts, Developers and Researchers to discuss LLMs and their applications.",
       "relevance_score": 28,
       "tier": "Tier 3",
       "last_post_date": "2026-03-19",
       "days_ago": 0,
-      "last_post_title": "Is RAG dying or is it already dead?",
-      "last_post_url": "https://www.reddit.com/r/LLMDevs/comments/1ry7jp0/is_rag_dying_or_is_it_already_dead/",
+      "last_post_title": "I made a small POC that turns Claude Code transcripts into interactive pixel-art worlds",
+      "last_post_url": "https://www.reddit.com/r/LLMDevs/comments/1ry86z6/i_made_a_small_poc_that_turns_claude_code/",
       "posts_in_feed": 25,
       "keyword_hits": 9,
       "weighted_keyword_hits": 9,
@@ -381,7 +381,7 @@
     },
     {
       "subreddit": "AgentsOfAI",
-      "subscribers": 105657,
+      "subscribers": 105659,
       "description": "A community for sharing and discussing AI Agents! Whether you\u2019re building, learning, or just curious, dive in.\n\nLet\u2019s grow this space together!",
       "relevance_score": 28,
       "tier": "Tier 3",
@@ -654,18 +654,36 @@
     },
     {
       "subreddit": "LocalLLM",
-      "subscribers": 126116,
+      "subscribers": 126120,
       "description": "Subreddit to discuss locally run large language models.",
       "relevance_score": 28,
       "tier": "Tier 3",
       "last_post_date": "2026-03-19",
       "days_ago": 0,
-      "last_post_title": "Local Llm hardware",
-      "last_post_url": "https://www.reddit.com/r/LocalLLM/comments/1ry5ma5/local_llm_hardware/",
+      "last_post_title": "Built a rust based mcp server so google antigravity can talk to my local llm model",
+      "last_post_url": "https://www.reddit.com/r/LocalLLM/comments/1ry895m/built_a_rust_based_mcp_server_so_google/",
       "posts_in_feed": 25,
-      "keyword_hits": 4,
-      "weighted_keyword_hits": 6,
+      "keyword_hits": 8,
+      "weighted_keyword_hits": 12,
       "top_keyword_posts": [
+        {
+          "title": "Built a rust based mcp server so google antigravity can talk",
+          "keywords": [
+            "mcp server",
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLM/comments/1ry895m/built_a_rust_based_mcp_server_so_google/"
+        },
+        {
+          "title": "\ud83d\ude80 Maximizing a 4GB VRAM RTX 3050: Building a Recursive AI Ag",
+          "keywords": [
+            "ai agent",
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLM/comments/1ry7vgf/maximizing_a_4gb_vram_rtx_3050_building_a/"
+        },
         {
           "title": "Local Llm hardware",
           "keywords": [
@@ -696,7 +714,7 @@
     },
     {
       "subreddit": "aiagents",
-      "subscribers": 97026,
+      "subscribers": 97031,
       "description": "AI Agents may be one of the primary conceptual frameworks for humanity\u2019s deployment of applied AI.\n\nTools, commentary and talent",
       "relevance_score": 28,
       "tier": "Tier 3",
@@ -753,25 +771,25 @@
     },
     {
       "subreddit": "LocalLLaMA",
-      "subscribers": 656599,
+      "subscribers": 656609,
       "description": "Subreddit to discuss locally hostable AI",
       "relevance_score": 20,
       "tier": "Tier 3",
       "last_post_date": "2026-03-19",
       "days_ago": 0,
-      "last_post_title": "Will minimax m2.7 be opensourced ?? There is no announcement in that regards on their X handle.",
-      "last_post_url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry7ugu/will_minimax_m27_be_opensourced_there_is_no/",
+      "last_post_title": "Autonomous research agent grinding on a single RTX PRO 6000 Blackwell \u2014 raising a multimodal \"baby\" AI called Charlotte in a simulated nursery \ud83d\udc76\ud83e\udd16",
+      "last_post_url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry86k4/autonomous_research_agent_grinding_on_a_single/",
       "posts_in_feed": 25,
       "keyword_hits": 5,
       "weighted_keyword_hits": 5,
       "top_keyword_posts": [
         {
-          "title": "I traced every layer of the stack when you send a prompt to ",
+          "title": "Is Qwen 3.5 0.8B the optimal choice for local RAG implementa",
           "keywords": [
-            "llm"
+            "rag"
           ],
           "date": "2026-03-19",
-          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry7dwt/i_traced_every_layer_of_the_stack_when_you_send_a/"
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry865a/is_qwen_35_08b_the_optimal_choice_for_local_rag/"
         },
         {
           "title": "Traditional RAG has a silent failure mode nobody talks about",
@@ -810,14 +828,14 @@
     },
     {
       "subreddit": "MicrosoftFabric",
-      "subscribers": 22788,
+      "subscribers": 22793,
       "description": "Everything you need to know about Microsoft Fabric: news, resources, and a community of users ready to answer questions!",
       "relevance_score": 20,
       "tier": "Tier 3",
       "last_post_date": "2026-03-19",
       "days_ago": 0,
-      "last_post_title": "Real time capacity monitor alerts?",
-      "last_post_url": "https://www.reddit.com/r/MicrosoftFabric/comments/1ry50q0/real_time_capacity_monitor_alerts/",
+      "last_post_title": "Notebook Resource for deploying specs, configs and control tables.",
+      "last_post_url": "https://www.reddit.com/r/MicrosoftFabric/comments/1ry8a6x/notebook_resource_for_deploying_specs_configs_and/",
       "posts_in_feed": 25,
       "keyword_hits": 0,
       "weighted_keyword_hits": 0,
@@ -1014,7 +1032,7 @@
     },
     {
       "subreddit": "snowflake",
-      "subscribers": 22519,
+      "subscribers": 22521,
       "description": "r/snowflake: The Unofficial Data Cloud Community\n\nThe premier hub for Snowflake Data Cloud architects and engineers. Master SQL performance, Snowpark (Python), and Cortex AI through real-world discuss",
       "relevance_score": 28,
       "tier": "Tier 3",
@@ -1106,7 +1124,7 @@
     },
     {
       "subreddit": "dataengineersindia",
-      "subscribers": 15530,
+      "subscribers": 15531,
       "description": "A dedicated space for data engineering professionals in India to connect, share knowledge, and tackle data challenges together.",
       "relevance_score": 28,
       "tier": "Tier 3",
@@ -1122,7 +1140,7 @@
     },
     {
       "subreddit": "analytics",
-      "subscribers": 259195,
+      "subscribers": 259196,
       "description": "Dedicated to web analytics, data and business analytics. We're here to discuss analysis of data, learning of skills and implementation of web analytics.",
       "relevance_score": 20,
       "tier": "Tier 3",
@@ -1138,7 +1156,7 @@
     },
     {
       "subreddit": "datascience",
-      "subscribers": 2730796,
+      "subscribers": 2730797,
       "description": "A space for data science professionals to engage in discussions and debates on the subject of data science.",
       "relevance_score": 20,
       "tier": "Tier 3",
@@ -1163,7 +1181,7 @@
     },
     {
       "subreddit": "databricks",
-      "subscribers": 25061,
+      "subscribers": 25062,
       "description": "A place to discuss all things related to Databricks",
       "relevance_score": 20,
       "tier": "Tier 3",
@@ -1319,7 +1337,7 @@
     },
     {
       "subreddit": "PowerBI",
-      "subscribers": 195098,
+      "subscribers": 195099,
       "description": "Everything you need to know about Power BI: news, resources, and a community of users ready to answer questions!",
       "relevance_score": 20,
       "tier": "Tier 3",
@@ -1425,7 +1443,7 @@
     },
     {
       "subreddit": "AI_Governance",
-      "subscribers": 912,
+      "subscribers": 913,
       "description": "Examining the impact of Artificial Intelligence on governance, dispute resolution, policing, and all things government and governance related.",
       "relevance_score": 14.8,
       "tier": "Tier 3",
@@ -1505,6 +1523,64 @@
         }
       ],
       "rss_url": "https://www.reddit.com/r/DataCentricAI/new/.rss"
+    },
+    {
+      "subreddit": "PydanticAI",
+      "subscribers": 4658,
+      "description": "For those who love to use Pydantic AI framework to build AI agents.",
+      "relevance_score": 26.3,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Contributions to Pydantic AI",
+      "last_post_url": "https://www.reddit.com/r/PydanticAI/comments/1ry88d7/contributions_to_pydantic_ai/",
+      "posts_in_feed": 25,
+      "keyword_hits": 6,
+      "weighted_keyword_hits": 10,
+      "top_keyword_posts": [
+        {
+          "title": "\ud83d\udd25 Master Pydantic AI in Under 1 Hour! (2026 Tutorial) | AI a",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-15",
+          "url": "https://www.reddit.com/r/PydanticAI/comments/1ru4by6/master_pydantic_ai_in_under_1_hour_2026_tutorial/"
+        },
+        {
+          "title": "Context engineering with Pydantic AI history_processors",
+          "keywords": [
+            "context engineering"
+          ],
+          "date": "2026-02-22",
+          "url": "https://www.reddit.com/r/PydanticAI/comments/1rb7h71/context_engineering_with_pydantic_ai_history/"
+        },
+        {
+          "title": "Do you guys monitor your ai agents?",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-02-12",
+          "url": "https://www.reddit.com/r/PydanticAI/comments/1r2m4bp/do_you_guys_monitor_your_ai_agents/"
+        },
+        {
+          "title": "memv \u2014 open-source memory for AI agents that only stores wha",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-02-10",
+          "url": "https://www.reddit.com/r/PydanticAI/comments/1r1bvj3/memv_opensource_memory_for_ai_agents_that_only/"
+        },
+        {
+          "title": "Web UI for testing Pydantic AI agents",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-01-14",
+          "url": "https://www.reddit.com/r/PydanticAI/comments/1qcoz4o/web_ui_for_testing_pydantic_ai_agents/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/PydanticAI/new/.rss",
+      "_is_new_discovery": true
     }
   ]
 }

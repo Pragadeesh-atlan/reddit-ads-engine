@@ -206,7 +206,7 @@ def discover_new_subreddits(known: set[str]) -> list[dict]:
             # (MEDIUM terms like "ai agent" are too broad for discovery)
             txt = (sub.get("description", "") + " " + name).lower()
             high_matches = [t for t in HIGH_TERMS if t in txt]
-            if high_matches and sub.get("subscribers", 0) >= 50:
+            if high_matches and sub.get("subscribers", 0) >= 10:
                 sub["_score"] = len(high_matches) * 15
                 sub["_matched"] = high_matches[:3]
                 found[name] = sub
@@ -362,18 +362,38 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
     known_names = {s["subreddit"] for s in today}
     discoveries = discover_new_subreddits(known_names)
 
-    # Fetch full data for promising discoveries (top 5 by subscribers)
+    # Fetch full data for ALL discoveries — track them even if not active yet
+    # Agent 3 will only activate the active ones, but we want to catch them
+    # the moment they become active
     new_subreddits = []
-    for disc in discoveries[:5]:
+    for disc in discoveries:
         print(f"  [NEW] r/{disc['name']}...", end="", file=sys.stderr)
         data = fetch_subreddit(disc["name"])
+        data["_is_new_discovery"] = True
+        new_subreddits.append(data)
         d = data["days_ago"]
-        if d is not None and d <= ACTIVE_DAYS:
-            data["_is_new_discovery"] = True
-            new_subreddits.append(data)
-            print(f" 🆕 active ({d}d ago) kw={data['keyword_hits']}", file=sys.stderr)
-        else:
-            print(f" skipped — not active ({d or '?'}d ago)", file=sys.stderr)
+        icon = "🟢" if d is not None and d <= ACTIVE_DAYS else "🔴"
+        print(f" {icon} ({d or '?'}d ago) kw={data['keyword_hits']}", file=sys.stderr)
+
+    # Auto-add active discoveries to seed file for future runs
+    if new_subreddits:
+        active_new = [s for s in new_subreddits
+                      if s.get("days_ago") is not None and s["days_ago"] <= STALE_DAYS]
+        if active_new:
+            with open(SEED_FILE) as f:
+                seed_data = json.load(f)
+            existing = set(seed_data["subreddits"])
+            added = []
+            for s in active_new:
+                if s["subreddit"] not in existing:
+                    seed_data["subreddits"].append(s["subreddit"])
+                    added.append(s["subreddit"])
+            if added:
+                seed_data["last_audited"] = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+                with open(SEED_FILE, "w") as f:
+                    json.dump(seed_data, f, indent=2)
+                print(f"\n  📥 Auto-added {len(added)} new subreddits to seeds: {', '.join(added)}",
+                      file=sys.stderr)
 
     # ── Compare with yesterday → generate actions ────────────────────────
     actions = []

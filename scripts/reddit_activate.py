@@ -36,7 +36,7 @@ ACTIVITY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/activity-report.
 OUTPUT_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/activation-plan.json")
 HISTORY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/activation-history.json")
 
-MIN_SUBSCRIBERS = 100  # Don't target tiny subreddits
+MIN_SUBSCRIBERS = 10  # Include small niche subreddits
 
 
 def run(budget: float = 50.0, push_sheets: bool = False, sheet_id: str = "") -> None:
