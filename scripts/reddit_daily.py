@@ -27,6 +27,7 @@ import os
 import subprocess
 import sys
 import time
+import urllib.parse
 import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
 
@@ -35,6 +36,7 @@ SEED_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/seed-subreddits.json
 YESTERDAY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/yesterday.json")
 TODAY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/today.json")
 HISTORY_DIR = os.path.join(BASE_DIR, "intelligence/reddit-ads/history")
+BLOCKLIST_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/blocklist.json")
 
 REDDIT = "https://www.reddit.com"
 ATOM = "http://www.w3.org/2005/Atom"
@@ -73,6 +75,147 @@ MEDIUM_TERMS = [
     "llm", "ai agent", "business intelligence", "analytics engineering",
     "data pipeline", "mlops", "vector database",
 ]
+
+
+# ── Discovery keywords — derived from 50+ Atlan pages on context layer,
+# context engineering, semantic layer, ontology, knowledge graphs, AI governance.
+# Each day we rotate through a subset to avoid rate limits.
+# Full list covers everything from atlan.com/context-layer/, /know/*, /great-data-debate-2026/*
+DISCOVERY_KEYWORDS = [
+    # Exact category language from Atlan pages
+    "context engineering",
+    "context layer",
+    "context graph",
+    "enterprise context layer",
+    "AI context stack",
+    "context for AI agents",
+    "context vacuum data",
+    "context preparation",
+    "context maturity",
+    # Semantic & ontology from Atlan pages
+    "semantic layer AI",
+    "ontology AI architecture",
+    "ontology vs semantic layer",
+    "context graph vs knowledge graph",
+    "semantic layer failed",
+    "ontology first AI",
+    # Data governance + AI from Atlan pages
+    "AI governance data",
+    "data governance AI agents",
+    "context engineering governance",
+    "AI readiness data",
+    "AI production readiness",
+    # Problems Atlan solves
+    "AI hallucination enterprise",
+    "LLM context window limitations",
+    "RAG data governance",
+    "AI agent metadata",
+    "active metadata platform",
+    # MCP & infrastructure
+    "model context protocol",
+    "MCP server AI",
+    "metadata lakehouse",
+    # Competitor adjacent
+    "data catalog AI agents",
+    "data lineage AI",
+    "knowledge graph enterprise AI",
+]
+
+# Known irrelevant subreddits — never suggest these
+BLOCKLIST = {
+    "conspiracy", "BPD", "HindutvaRises", "GIRLSundPANZER", "DiscoElysium",
+    "hingeapp", "PurpleCoco", "tampa", "StarshipPorn", "evilbuildings",
+    "CharacterAI", "PygmalionAI", "fetishcai", "aiwars", "ethtrader",
+    "Hedera", "JasmyToken", "Iota", "NEO", "oasisnetwork", "ONT", "ONTtrader",
+    "OntologyNetwork",  # crypto, not data ontology
+    "ChatGPT", "OpenAI", "singularity", "ArtificialIntelligence",
+    "MachineLearning", "learnmachinelearning", "deeplearning", "MLQuestions",
+    "vibecoding", "VibeCodeDevs", "buildinpublic", "ChatGPTCoding",
+    "ChatGPTPromptGenius", "PromptEngineering", "AiGeminiPhotoPrompts",
+    "blender", "rust", "godot", "fabricmc", "Unity3D", "ruby", "docker",
+    "webdev", "programming", "engineering", "AskEngineers",
+    "Maplestory", "resumes", "branding", "agi", "Banksy", "artcollecting",
+    "productivity", "DataHoarder", "Metaphysics", "networking",
+    "GeminiAI", "GoogleGeminiAI", "ManusOfficial", "ClaudeAI", "windsurf",
+    "Taskade", "codex", "AngelInvesting", "polymarket_bets",
+}
+
+
+def _search_subreddits(query: str, limit: int = 10) -> list[dict]:
+    """Search Reddit for subreddits matching a query."""
+    params = urllib.parse.urlencode({"q": query, "limit": limit, "sort": "relevance"})
+    url = f"{REDDIT}/subreddits/search.json?{params}"
+    try:
+        result = subprocess.run(
+            ["curl", "-sL", "--max-time", "12", "-A", UA, url],
+            capture_output=True, timeout=15)
+        if not result.stdout:
+            return []
+        data = json.loads(result.stdout.decode("utf-8"))
+        results = []
+        for child in data.get("data", {}).get("children", []):
+            d = child.get("data", {})
+            name = d.get("display_name", "")
+            if name and name not in BLOCKLIST and not d.get("over18", False):
+                results.append({
+                    "name": name,
+                    "subscribers": d.get("subscribers") or 0,
+                    "description": (d.get("public_description") or "")[:200],
+                })
+        return results
+    except Exception:
+        return []
+
+
+def discover_new_subreddits(known: set[str]) -> list[dict]:
+    """Search for new subreddits not in our seed list. Rotates 5 keywords per day."""
+    # Load blocklist additions
+    extra_blocked = set()
+    if os.path.exists(BLOCKLIST_FILE):
+        try:
+            with open(BLOCKLIST_FILE) as f:
+                extra_blocked = set(json.load(f).get("blocked", []))
+        except Exception:
+            pass
+    blocked = BLOCKLIST | extra_blocked | known
+
+    # Rotate 5 keywords per day to avoid rate limits
+    day_of_year = datetime.now(timezone.utc).timetuple().tm_yday
+    start = (day_of_year * 5) % len(DISCOVERY_KEYWORDS)
+    today_keywords = []
+    for i in range(5):
+        idx = (start + i) % len(DISCOVERY_KEYWORDS)
+        today_keywords.append(DISCOVERY_KEYWORDS[idx])
+
+    print(f"\n  🔍 Discovery — searching for new subreddits...", file=sys.stderr)
+    print(f"     Today's keywords: {', '.join(today_keywords)}", file=sys.stderr)
+
+    found = {}
+    for kw in today_keywords:
+        print(f"     Searching: \"{kw}\"...", end="", file=sys.stderr)
+        results = _search_subreddits(kw, limit=10)
+        new = 0
+        for sub in results:
+            name = sub["name"]
+            if name not in blocked and name not in found:
+                # Quick relevance check — must have at least one high/medium term
+                txt = (sub["description"] + " " + name).lower()
+                has_signal = any(t in txt for t in HIGH_TERMS + MEDIUM_TERMS)
+                if has_signal and sub["subscribers"] >= 10:
+                    found[name] = sub
+                    new += 1
+        print(f" {new} new", file=sys.stderr)
+        time.sleep(3)
+
+    discoveries = sorted(found.values(), key=lambda x: -(x["subscribers"] or 0))
+    if discoveries:
+        print(f"     Found {len(discoveries)} new candidates:", file=sys.stderr)
+        for s in discoveries[:10]:
+            print(f"       r/{s['name']:<25} {s['subscribers']:>8,} subs  {s['description'][:40]}", file=sys.stderr)
+    else:
+        print(f"     No new subreddits found today.", file=sys.stderr)
+
+    return discoveries
 
 
 def fetch_subreddit(name: str) -> dict:
@@ -206,6 +349,23 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
         icon = "🟢" if d is not None and d <= ACTIVE_DAYS else ("🟡" if d is not None and d <= STALE_DAYS else "🔴")
         print(f" {icon} {data['last_post_date']} ({d or '?'}d) kw={data['keyword_hits']}", file=sys.stderr)
 
+    # ── Discovery — search for new subreddits ─────────────────────────
+    known_names = {s["subreddit"] for s in today}
+    discoveries = discover_new_subreddits(known_names)
+
+    # Fetch full data for promising discoveries (top 5 by subscribers)
+    new_subreddits = []
+    for disc in discoveries[:5]:
+        print(f"  [NEW] r/{disc['name']}...", end="", file=sys.stderr)
+        data = fetch_subreddit(disc["name"])
+        d = data["days_ago"]
+        if d is not None and d <= ACTIVE_DAYS:
+            data["_is_new_discovery"] = True
+            new_subreddits.append(data)
+            print(f" 🆕 active ({d}d ago) kw={data['keyword_hits']}", file=sys.stderr)
+        else:
+            print(f" skipped — not active ({d or '?'}d ago)", file=sys.stderr)
+
     # ── Compare with yesterday → generate actions ────────────────────────
     actions = []
     yesterday_active = {s["subreddit"] for s in yesterday.values()
@@ -255,6 +415,21 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
             "keyword_hits": s["keyword_hits"],
         })
 
+    # New discoveries — not in seeds, but active and relevant
+    for s in new_subreddits:
+        actions.append({
+            "action": "NEW",
+            "subreddit": s["subreddit"],
+            "reason": f"New discovery — {s['subscribers']:,} subs, "
+                      f"last post {s['days_ago']}d ago, {s['keyword_hits']} context keywords",
+            "subscribers": s["subscribers"],
+            "last_post": s["last_post_title"][:60],
+            "last_post_date": s["last_post_date"],
+            "keyword_hits": s["keyword_hits"],
+        })
+        # Also add to today's data so it shows in the sheet
+        today.append(s)
+
     # ── Save today's data as "yesterday" for tomorrow ────────────────────
     os.makedirs(os.path.dirname(YESTERDAY_FILE), exist_ok=True)
     os.makedirs(HISTORY_DIR, exist_ok=True)
@@ -277,10 +452,17 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
     adds = [a for a in actions if a["action"] == "ADD"]
     removes = [a for a in actions if a["action"] == "REMOVE"]
     keeps = [a for a in actions if a["action"] == "KEEP"]
+    news = [a for a in actions if a["action"] == "NEW"]
 
     print(f"\n{'='*70}", file=sys.stderr)
     print(f"  DAILY ACTIONS", file=sys.stderr)
     print(f"{'='*70}", file=sys.stderr)
+
+    if news:
+        print(f"\n  🆕 NEW DISCOVERIES — consider adding to campaign ({len(news)}):", file=sys.stderr)
+        for a in news:
+            print(f"     r/{a['subreddit']:<25} — {a['reason']}", file=sys.stderr)
+            print(f"       Latest: {a['last_post']}", file=sys.stderr)
 
     if adds:
         print(f"\n  🟢 ADD to campaign ({len(adds)}):", file=sys.stderr)
@@ -297,7 +479,7 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
         for a in keeps:
             print(f"     r/{a['subreddit']:<25} kw={a['keyword_hits']}", file=sys.stderr)
 
-    if not adds and not removes:
+    if not adds and not removes and not news:
         print(f"\n  No changes from yesterday.", file=sys.stderr)
 
     # Active subreddit list for copy-paste into Reddit Ads Manager
