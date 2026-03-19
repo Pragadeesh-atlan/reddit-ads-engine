@@ -512,9 +512,145 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
               f"{s['tier']:<7} {s['last_post_date']:<12} {days:>5} {s['keyword_hits']:>4}  "
               f"{s['last_post_title'][:50]}")
 
+    # Send Slack notification
+    _send_slack(actions, active_list, top_keywords, new_subreddits, sheet_url="")
+
     # Push to sheets
+    sheet_url = ""
     if push_sheets:
-        _push_to_sheets(today, actions, active_list, top_keywords, sheet_id)
+        sheet_url = _push_to_sheets(today, actions, active_list, top_keywords, sheet_id)
+        if sheet_url:
+            _send_slack_sheet_link(sheet_url)
+
+
+def _load_env():
+    """Load .env file from repo root."""
+    env_path = os.path.join(BASE_DIR, ".env")
+    if os.path.exists(env_path):
+        with open(env_path) as f:
+            for line in f:
+                line = line.strip()
+                if line and not line.startswith("#") and "=" in line:
+                    key, val = line.split("=", 1)
+                    os.environ.setdefault(key.strip(), val.strip())
+
+
+def _send_slack(actions, active_list, top_keywords, new_subreddits, sheet_url=""):
+    """Send daily brief to Slack."""
+    _load_env()
+    token = os.environ.get("SLACK_BOT_TOKEN", "")
+    channel = os.environ.get("SLACK_CHANNEL", "")
+    if not token or not channel:
+        print("  [SKIP] Slack — no SLACK_BOT_TOKEN or SLACK_CHANNEL in .env", file=sys.stderr)
+        return
+
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    adds = [a for a in actions if a["action"] == "ADD"]
+    removes = [a for a in actions if a["action"] == "REMOVE"]
+    keeps = [a for a in actions if a["action"] == "KEEP"]
+    news = [a for a in actions if a["action"] == "NEW"]
+
+    # Build Slack message blocks
+    blocks = [
+        {
+            "type": "header",
+            "text": {"type": "plain_text", "text": f"Reddit Ads Daily Brief — {date}"}
+        },
+        {
+            "type": "section",
+            "text": {"type": "mrkdwn", "text":
+                f"*{len(active_list)}* active subreddits | "
+                f"*{len(adds)}* to add | *{len(removes)}* to remove | "
+                f"*{len(news)}* new discoveries"}
+        },
+    ]
+
+    # New discoveries
+    if news:
+        news_text = "*:new: New Discoveries — consider adding:*\n"
+        for a in news:
+            news_text += f"• `r/{a['subreddit']}` — {a['subscribers']:,} subs, {a['keyword_hits']} context keywords\n"
+            news_text += f"  _{a['last_post']}_\n"
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": news_text}})
+
+    # Adds
+    if adds:
+        add_text = "*:large_green_circle: ADD to campaign:*\n"
+        for a in adds:
+            add_text += f"• `r/{a['subreddit']}` — {a['reason']}\n"
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": add_text}})
+
+    # Removes
+    if removes:
+        rm_text = "*:red_circle: REMOVE from campaign:*\n"
+        for a in removes:
+            rm_text += f"• `r/{a['subreddit']}` — {a['reason']}\n"
+        blocks.append({"type": "section", "text": {"type": "mrkdwn", "text": rm_text}})
+
+    # Active list
+    if active_list:
+        blocks.append({"type": "divider"})
+        blocks.append({
+            "type": "section",
+            "text": {"type": "mrkdwn", "text":
+                f"*:clipboard: Active subreddits for targeting ({len(active_list)}):*\n"
+                f"```{', '.join(active_list)}```"}
+        })
+
+    # Top keywords
+    if top_keywords:
+        kw_text = ", ".join(kw for kw, _ in top_keywords[:10])
+        blocks.append({
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": f"*:key: Suggested keywords:*\n`{kw_text}`"}
+        })
+
+    # No changes
+    if not adds and not removes and not news:
+        blocks.append({
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": "_No changes from yesterday. All subreddits same status._"}
+        })
+
+    # Send via curl
+    payload = json.dumps({"channel": channel, "blocks": blocks})
+    try:
+        result = subprocess.run(
+            ["curl", "-sL", "-X", "POST", "https://slack.com/api/chat.postMessage",
+             "-H", f"Authorization: Bearer {token}",
+             "-H", "Content-Type: application/json",
+             "-d", payload],
+            capture_output=True, timeout=15)
+        resp = json.loads(result.stdout.decode("utf-8"))
+        if resp.get("ok"):
+            print(f"  Slack notification sent to {channel}", file=sys.stderr)
+        else:
+            print(f"  [WARN] Slack error: {resp.get('error', 'unknown')}", file=sys.stderr)
+    except Exception as e:
+        print(f"  [WARN] Slack failed: {e}", file=sys.stderr)
+
+
+def _send_slack_sheet_link(sheet_url):
+    """Send the Google Sheet link as a follow-up message."""
+    _load_env()
+    token = os.environ.get("SLACK_BOT_TOKEN", "")
+    channel = os.environ.get("SLACK_CHANNEL", "")
+    if not token or not channel or not sheet_url:
+        return
+
+    payload = json.dumps({
+        "channel": channel,
+        "text": f":bar_chart: Google Sheet ready: {sheet_url}",
+    })
+    try:
+        subprocess.run(
+            ["curl", "-sL", "-X", "POST", "https://slack.com/api/chat.postMessage",
+             "-H", f"Authorization: Bearer {token}",
+             "-H", "Content-Type: application/json",
+             "-d", payload],
+            capture_output=True, timeout=15)
+    except Exception:
+        pass
 
 
 def _push_to_sheets(today, actions, active_list, top_keywords, sheet_id):
@@ -525,7 +661,7 @@ def _push_to_sheets(today, actions, active_list, top_keywords, sheet_id):
         import google.auth.transport.requests
     except ImportError:
         print("  [ERROR] google-api-python-client not installed", file=sys.stderr)
-        return
+        return ""
 
     adc_path = os.path.expanduser("~/.config/gcloud/application_default_credentials.json")
     with open(adc_path) as f:
@@ -649,7 +785,9 @@ def _push_to_sheets(today, actions, active_list, top_keywords, sheet_id):
         spreadsheetId=sheet_id, body={"requests": requests},
     ).execute()
 
-    print(f"  Sheet: https://docs.google.com/spreadsheets/d/{sheet_id}/edit", file=sys.stderr)
+    sheet_url = f"https://docs.google.com/spreadsheets/d/{sheet_id}/edit"
+    print(f"  Sheet: {sheet_url}", file=sys.stderr)
+    return sheet_url
 
 
 if __name__ == "__main__":
