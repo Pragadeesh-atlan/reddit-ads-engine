@@ -512,15 +512,13 @@ def run(push_sheets: bool = False, sheet_id: str = "") -> None:
               f"{s['tier']:<7} {s['last_post_date']:<12} {days:>5} {s['keyword_hits']:>4}  "
               f"{s['last_post_title'][:50]}")
 
-    # Send Slack notification
-    _send_slack(actions, active_list, top_keywords, new_subreddits, sheet_url="")
-
-    # Push to sheets
+    # Push to sheets first so we can include the link in Slack
     sheet_url = ""
     if push_sheets:
         sheet_url = _push_to_sheets(today, actions, active_list, top_keywords, sheet_id)
-        if sheet_url:
-            _send_slack_sheet_link(sheet_url)
+
+    # Send Slack notification (with sheet link if available)
+    _send_slack(actions, active_list, top_keywords, new_subreddits, sheet_url=sheet_url)
 
 
 def _load_env():
@@ -610,6 +608,14 @@ def _send_slack(actions, active_list, top_keywords, new_subreddits, sheet_url=""
         blocks.append({
             "type": "section",
             "text": {"type": "mrkdwn", "text": "_No changes from yesterday. All subreddits same status._"}
+        })
+
+    # Google Sheet link
+    if sheet_url:
+        blocks.append({"type": "divider"})
+        blocks.append({
+            "type": "section",
+            "text": {"type": "mrkdwn", "text": f":bar_chart: *<{sheet_url}|Open Google Sheet>*"}
         })
 
     # Send via curl
