@@ -1,0 +1,1510 @@
+{
+  "date": "2026-03-19",
+  "subreddits": [
+    {
+      "subreddit": "dataengineering",
+      "subscribers": 440860,
+      "description": "News &amp; discussion on Data Engineering topics, including but not limited to: data pipelines, databases, data formats, storage, data modeling, data governance, cleansing, NoSQL, distributed systems,",
+      "relevance_score": 59,
+      "tier": "Tier 1",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "The fastest Lucene/Tantivy alternative in C++ and the search benchmark game",
+      "last_post_url": "https://www.reddit.com/r/dataengineering/comments/1ry692r/the_fastest_lucenetantivy_alternative_in_c_and/",
+      "posts_in_feed": 25,
+      "keyword_hits": 2,
+      "weighted_keyword_hits": 2,
+      "top_keyword_posts": [
+        {
+          "title": "Switching from AWS Textract to LLM/VLM based OCR",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/dataengineering/comments/1rx3n9c/switching_from_aws_textract_to_llmvlm_based_ocr/"
+        },
+        {
+          "title": "LLM based Datawarehouse",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/dataengineering/comments/1rx1tmv/llm_based_datawarehouse/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/dataengineering/new/.rss"
+    },
+    {
+      "subreddit": "semanticweb",
+      "subscribers": 8237,
+      "description": "A subreddit dedicated to all things Linked Data. Links, questions, discussions, etc. on RDF, metadata, inferencing, microformats, SPARQL, ...",
+      "relevance_score": 49.6,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "DBpedia core releases unavailable -- does anyone have copies or know a source?",
+      "last_post_url": "https://www.reddit.com/r/semanticweb/comments/1rxxb3y/dbpedia_core_releases_unavailable_does_anyone/",
+      "posts_in_feed": 25,
+      "keyword_hits": 8,
+      "weighted_keyword_hits": 18,
+      "top_keyword_posts": [
+        {
+          "title": "AI Agent Skills in an AgenticWeb",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-15",
+          "url": "https://www.reddit.com/r/semanticweb/comments/1rutjw5/ai_agent_skills_in_an_agenticweb/"
+        },
+        {
+          "title": "Why AI Needs Facts: The Case for Layering Ontologies onto LL",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-13",
+          "url": "https://www.reddit.com/r/semanticweb/comments/1rspp8n/why_ai_needs_facts_the_case_for_layering/"
+        },
+        {
+          "title": "DEALER: A Fuzzy EL++ Description Logic Reasoner in Rust \u2014 Ar",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/semanticweb/comments/1rpuvkw/dealer_a_fuzzy_el_description_logic_reasoner_in/"
+        },
+        {
+          "title": "How to Choose Ontology Development Methodology",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-02-21",
+          "url": "https://www.reddit.com/r/semanticweb/comments/1raz0eh/how_to_choose_ontology_development_methodology/"
+        },
+        {
+          "title": "ArchiMate Ontology in RDF/OWL",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-02-12",
+          "url": "https://www.reddit.com/r/semanticweb/comments/1r35cag/archimate_ontology_in_rdfowl/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/semanticweb/new/.rss"
+    },
+    {
+      "subreddit": "ContextEngineering",
+      "subscribers": 9572,
+      "description": "Context engineering is the application of engineering practices to the curation of AI context: providing all the context for a task to be plausibly solved by a generative model or system.",
+      "relevance_score": 49.9,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-18",
+      "days_ago": 1,
+      "last_post_title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+      "last_post_url": "https://www.reddit.com/r/ContextEngineering/comments/1rx3tvp/data_governance_vs_ai_governance_why_its_the/",
+      "posts_in_feed": 25,
+      "keyword_hits": 12,
+      "weighted_keyword_hits": 29,
+      "top_keyword_posts": [
+        {
+          "title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+          "keywords": [
+            "data governance",
+            "ai governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/ContextEngineering/comments/1rx3tvp/data_governance_vs_ai_governance_why_its_the/"
+        },
+        {
+          "title": "The LLM already knows git better than your retrieval pipelin",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/ContextEngineering/comments/1rwtgzc/the_llm_already_knows_git_better_than_your/"
+        },
+        {
+          "title": "Jensen's GTC 2026 slides are basically the context engineeri",
+          "keywords": [
+            "context engineering"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/ContextEngineering/comments/1rw1rsb/jensens_gtc_2026_slides_are_basically_the_context/"
+        },
+        {
+          "title": "How do large AI apps manage LLM costs at scale?",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-14",
+          "url": "https://www.reddit.com/r/ContextEngineering/comments/1rtw5o9/how_do_large_ai_apps_manage_llm_costs_at_scale/"
+        },
+        {
+          "title": "Some useful repos if you are building AI agents",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-14",
+          "url": "https://www.reddit.com/r/ContextEngineering/comments/1rtm4tr/some_useful_repos_if_you_are_building_ai_agents/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/ContextEngineering/new/.rss"
+    },
+    {
+      "subreddit": "AI_Agents",
+      "subscribers": 318878,
+      "description": "A place for discussion around the use of AI Agents and related tools. AI Agents are LLMs that have the ability to \"use tools\" or \"execute functions\" in an autonomous or semi-autonomous (also known as ",
+      "relevance_score": 36,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "When running multiple agents in parallel\u2026 how do you stop them from stepping on each other?",
+      "last_post_url": "https://www.reddit.com/r/AI_Agents/comments/1ry7qmc/when_running_multiple_agents_in_parallel_how_do/",
+      "posts_in_feed": 25,
+      "keyword_hits": 7,
+      "weighted_keyword_hits": 7,
+      "top_keyword_posts": [
+        {
+          "title": "I am looking for a Technical Writer to collaborate on a pape",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AI_Agents/comments/1ry41up/i_am_looking_for_a_technical_writer_to/"
+        },
+        {
+          "title": "Why do voice AI agents still get zero health monitoring comp",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AI_Agents/comments/1ry3jmj/why_do_voice_ai_agents_still_get_zero_health/"
+        },
+        {
+          "title": "How are people actually testing their AI agents before putti",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AI_Agents/comments/1ry376y/how_are_people_actually_testing_their_ai_agents/"
+        },
+        {
+          "title": "AI agents market data I came across \u2014 some of it actually su",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AI_Agents/comments/1ry0oys/ai_agents_market_data_i_came_across_some_of_it/"
+        },
+        {
+          "title": "Are AI agents worth the cost compared to traditional automat",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AI_Agents/comments/1rxyd47/are_ai_agents_worth_the_cost_compared_to/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AI_Agents/new/.rss"
+    },
+    {
+      "subreddit": "OntologyEngineering",
+      "subscribers": 127,
+      "description": "Ontology is essential for agentic reasoning. Rather than building data stacks and retroactively adding ontology, we believe in building the ontology first and letting agents derive their own stacks to",
+      "relevance_score": 25.5,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "What is \u201crevenue\u201d and why does it break data warehouses?",
+      "last_post_url": "https://www.reddit.com/r/OntologyEngineering/comments/1ry0apr/what_is_revenue_and_why_does_it_break_data/",
+      "posts_in_feed": 15,
+      "keyword_hits": 10,
+      "weighted_keyword_hits": 26,
+      "top_keyword_posts": [
+        {
+          "title": "Everyday use of ontology with LLMs (not data related)",
+          "keywords": [
+            "ontology",
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/OntologyEngineering/comments/1rx63pb/everyday_use_of_ontology_with_llms_not_data/"
+        },
+        {
+          "title": "Prompt engineering is ontology engineering in denial",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/OntologyEngineering/comments/1rx4ca1/prompt_engineering_is_ontology_engineering_in/"
+        },
+        {
+          "title": "raw to query with ontology annotations?",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-03-11",
+          "url": "https://www.reddit.com/r/OntologyEngineering/comments/1rqp3ib/raw_to_query_with_ontology_annotations/"
+        },
+        {
+          "title": "Splitting the ontology",
+          "keywords": [
+            "ontology"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/OntologyEngineering/comments/1rq28kt/splitting_the_ontology/"
+        },
+        {
+          "title": "Ontology in semantic layer?",
+          "keywords": [
+            "semantic layer",
+            "ontology"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/OntologyEngineering/comments/1rq20e9/ontology_in_semantic_layer/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/OntologyEngineering/new/.rss"
+    },
+    {
+      "subreddit": "Rag",
+      "subscribers": 65478,
+      "description": "Welcome to r/Rag, the community for everything Retrieval-Augmented Generation (RAG)! RAG combines retrieval systems with generative models to create more accurate responses, enhancing applications lik",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "StackOverflow-style site for coding agents",
+      "last_post_url": "https://www.reddit.com/r/Rag/comments/1ry5ijy/stackoverflowstyle_site_for_coding_agents/",
+      "posts_in_feed": 25,
+      "keyword_hits": 17,
+      "weighted_keyword_hits": 19,
+      "top_keyword_posts": [
+        {
+          "title": "Is there another efficient local RAG solution?",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/Rag/comments/1ry4fyr/is_there_another_efficient_local_rag_solution/"
+        },
+        {
+          "title": "Beyond Naive Chunking: Best way to index 100+ Column Tables ",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/Rag/comments/1rxzpdm/beyond_naive_chunking_best_way_to_index_100/"
+        },
+        {
+          "title": "Best PDF Parser for Multi-Column Research Papers in RAG Pipe",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/Rag/comments/1rxzdtq/best_pdf_parser_for_multicolumn_research_papers/"
+        },
+        {
+          "title": "How do you evalaution and investigate root causes for produc",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/Rag/comments/1rxs300/how_do_you_evalaution_and_investigate_root_causes/"
+        },
+        {
+          "title": "RAG With Transactional Memory and Consistency Guarantees Ins",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/Rag/comments/1rxpbci/rag_with_transactional_memory_and_consistency/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/Rag/new/.rss"
+    },
+    {
+      "subreddit": "LLMDevs",
+      "subscribers": 137597,
+      "description": "A space for Enthusiasts, Developers and Researchers to discuss LLMs and their applications.",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Is RAG dying or is it already dead?",
+      "last_post_url": "https://www.reddit.com/r/LLMDevs/comments/1ry7jp0/is_rag_dying_or_is_it_already_dead/",
+      "posts_in_feed": 25,
+      "keyword_hits": 9,
+      "weighted_keyword_hits": 9,
+      "top_keyword_posts": [
+        {
+          "title": "Is RAG dying or is it already dead?",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LLMDevs/comments/1ry7jp0/is_rag_dying_or_is_it_already_dead/"
+        },
+        {
+          "title": "Anyone had success with Local RAG?",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LLMDevs/comments/1ry4gu2/anyone_had_success_with_local_rag/"
+        },
+        {
+          "title": "Why end-to-end LLM strategy search gives noisy feedback",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LLMDevs/comments/1ry1yx4/why_endtoend_llm_strategy_search_gives_noisy/"
+        },
+        {
+          "title": "Why end-to-end LLM strategy search gives noisy feedback",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LLMDevs/comments/1ry1yc3/why_endtoend_llm_strategy_search_gives_noisy/"
+        },
+        {
+          "title": "[Case Study] Moving beyond \"I am a large language model\": Ma",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LLMDevs/comments/1rxn4c5/case_study_moving_beyond_i_am_a_large_language/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/LLMDevs/new/.rss"
+    },
+    {
+      "subreddit": "AgentsOfAI",
+      "subscribers": 105657,
+      "description": "A community for sharing and discussing AI Agents! Whether you\u2019re building, learning, or just curious, dive in.\n\nLet\u2019s grow this space together!",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_url": "https://www.reddit.com/r/AgentsOfAI/comments/1ry6pt0/whats_your_biggest_headache_with_h100_clusters/",
+      "posts_in_feed": 25,
+      "keyword_hits": 10,
+      "weighted_keyword_hits": 10,
+      "top_keyword_posts": [
+        {
+          "title": "Why does it feel like everyone is suddenly learning AI agent",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AgentsOfAI/comments/1ry2b8w/why_does_it_feel_like_everyone_is_suddenly/"
+        },
+        {
+          "title": "I spent 6 months building enterprise AI agents. Here's the o",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AgentsOfAI/comments/1rxwkki/i_spent_6_months_building_enterprise_ai_agents/"
+        },
+        {
+          "title": "AI agent hacked McKinsey's chatbot and gained full read-writ",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AgentsOfAI/comments/1rxwka9/ai_agent_hacked_mckinseys_chatbot_and_gained_full/"
+        },
+        {
+          "title": "Solution to AI Agent Prompt Injection, Hijacking attacks and",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AgentsOfAI/comments/1rxtt6h/solution_to_ai_agent_prompt_injection_hijacking/"
+        },
+        {
+          "title": "Nothing CEO says smartphone apps will disappear as AI agents",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/AgentsOfAI/comments/1rxtmez/nothing_ceo_says_smartphone_apps_will_disappear/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AgentsOfAI/new/.rss"
+    },
+    {
+      "subreddit": "KnowledgeGraph",
+      "subscribers": 4852,
+      "description": "Knowledge Graph",
+      "relevance_score": 33.4,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-18",
+      "days_ago": 1,
+      "last_post_title": "How do you approach knowledge elicitation when building knowledge graphs?",
+      "last_post_url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rx4ia5/how_do_you_approach_knowledge_elicitation_when/",
+      "posts_in_feed": 25,
+      "keyword_hits": 9,
+      "weighted_keyword_hits": 21,
+      "top_keyword_posts": [
+        {
+          "title": "How do you approach knowledge elicitation when building know",
+          "keywords": [
+            "knowledge graph"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rx4ia5/how_do_you_approach_knowledge_elicitation_when/"
+        },
+        {
+          "title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+          "keywords": [
+            "data governance",
+            "ai governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rx3x60/data_governance_vs_ai_governance_why_its_the/"
+        },
+        {
+          "title": "Joe Reis: Gartner Declares 2026 The Year of Context\u2122: Everyt",
+          "keywords": [
+            "data mesh"
+          ],
+          "date": "2026-03-12",
+          "url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rs0i6b/joe_reis_gartner_declares_2026_the_year_of/"
+        },
+        {
+          "title": "Spatial temporal knowledge graph",
+          "keywords": [
+            "knowledge graph"
+          ],
+          "date": "2026-03-11",
+          "url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rr3iks/spatial_temporal_knowledge_graph/"
+        },
+        {
+          "title": "Built a \"select open tabs \u2192 instant knowledge graph\" of sema",
+          "keywords": [
+            "knowledge graph"
+          ],
+          "date": "2026-03-08",
+          "url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rogufk/built_a_select_open_tabs_instant_knowledge_graph/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/KnowledgeGraph/new/.rss"
+    },
+    {
+      "subreddit": "MCPservers",
+      "subscribers": 15609,
+      "description": "This community is dedicated to discussions about the Model Context Protocol (MCP), an open standard facilitating secure, two-way connections between data sources and AI-powered tools. Here, members sh",
+      "relevance_score": 50,
+      "tier": "Tier 1",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "I built an MCP server that makes Claude Code improve itself from GitHub",
+      "last_post_url": "https://www.reddit.com/r/MCPservers/comments/1ry67wb/i_built_an_mcp_server_that_makes_claude_code/",
+      "posts_in_feed": 25,
+      "keyword_hits": 14,
+      "weighted_keyword_hits": 40,
+      "top_keyword_posts": [
+        {
+          "title": "I built an MCP server that makes Claude Code improve itself ",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/MCPservers/comments/1ry67wb/i_built_an_mcp_server_that_makes_claude_code/"
+        },
+        {
+          "title": "From Subgraph to AI Agent Tool: How to Turn Any Subgraph int",
+          "keywords": [
+            "mcp server",
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/MCPservers/comments/1ry214k/from_subgraph_to_ai_agent_tool_how_to_turn_any/"
+        },
+        {
+          "title": "SericeTitan MCP Server",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/MCPservers/comments/1rwsfdu/sericetitan_mcp_server/"
+        },
+        {
+          "title": "I got tired of setting up MCP servers by hand so I automated",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/MCPservers/comments/1rwj3ac/i_got_tired_of_setting_up_mcp_servers_by_hand_so/"
+        },
+        {
+          "title": "I built a YouTube MCP server for Claude \u2014 search any creator",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/MCPservers/comments/1rw7nrr/i_built_a_youtube_mcp_server_for_claude_search/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/MCPservers/new/.rss"
+    },
+    {
+      "subreddit": "AIMemory",
+      "subscribers": 9840,
+      "description": "AI memory and context engineering - ability of artificial intelligence to store, retrieve, and effectively use information across interactions. It allows AI systems to maintain context, learn from pas",
+      "relevance_score": 35.0,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-14",
+      "days_ago": 5,
+      "last_post_title": "Some useful repos if you are building AI agents",
+      "last_post_url": "https://www.reddit.com/r/AIMemory/comments/1rtlowt/some_useful_repos_if_you_are_building_ai_agents/",
+      "posts_in_feed": 25,
+      "keyword_hits": 3,
+      "weighted_keyword_hits": 3,
+      "top_keyword_posts": [
+        {
+          "title": "Some useful repos if you are building AI agents",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-14",
+          "url": "https://www.reddit.com/r/AIMemory/comments/1rtlowt/some_useful_repos_if_you_are_building_ai_agents/"
+        },
+        {
+          "title": "Trying to replace RAG with something more organic \u2014 4 days i",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-11",
+          "url": "https://www.reddit.com/r/AIMemory/comments/1rqmy5x/trying_to_replace_rag_with_something_more_organic/"
+        },
+        {
+          "title": "AI agents have a creation memory problem, not just a convers",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-02-24",
+          "url": "https://www.reddit.com/r/AIMemory/comments/1rdffhk/ai_agents_have_a_creation_memory_problem_not_just/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AIMemory/new/.rss"
+    },
+    {
+      "subreddit": "mcp",
+      "subscribers": 101230,
+      "description": "The Model Context Protocol is an open standard that enables developers to build secure, two-way connections between their data sources and AI-powered tools",
+      "relevance_score": 35,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "mcp-ted \u2013 TED MCP Server: Real-time EU public tenders access. https://www.lexsocket.ai/",
+      "last_post_url": "https://www.reddit.com/r/mcp/comments/1ry7nlg/mcpted_ted_mcp_server_realtime_eu_public_tenders/",
+      "posts_in_feed": 25,
+      "keyword_hits": 17,
+      "weighted_keyword_hits": 43,
+      "top_keyword_posts": [
+        {
+          "title": "mcp-ted \u2013 TED MCP Server: Real-time EU public tenders access",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/mcp/comments/1ry7nlg/mcpted_ted_mcp_server_realtime_eu_public_tenders/"
+        },
+        {
+          "title": "LINE Bot MCP Server (SSE Support) \u2013 Integrates the LINE Mess",
+          "keywords": [
+            "model context protocol",
+            "mcp server",
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/mcp/comments/1ry7nl0/line_bot_mcp_server_sse_support_integrates_the/"
+        },
+        {
+          "title": "We graded over 200,000 MCP servers (both stdio & https). Mos",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/mcp/comments/1ry3xv7/we_graded_over_200000_mcp_servers_both_stdio/"
+        },
+        {
+          "title": "rfcxml-mcp \u2013 A Model Context Protocol (MCP) server for struc",
+          "keywords": [
+            "model context protocol"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/mcp/comments/1ry2r6s/rfcxmlmcp_a_model_context_protocol_mcp_server_for/"
+        },
+        {
+          "title": "I built an MCP Server / AI web app to track flights and sate",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/mcp/comments/1ry2f0d/i_built_an_mcp_server_ai_web_app_to_track_flights/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/mcp/new/.rss"
+    },
+    {
+      "subreddit": "LocalLLM",
+      "subscribers": 126116,
+      "description": "Subreddit to discuss locally run large language models.",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Local Llm hardware",
+      "last_post_url": "https://www.reddit.com/r/LocalLLM/comments/1ry5ma5/local_llm_hardware/",
+      "posts_in_feed": 25,
+      "keyword_hits": 4,
+      "weighted_keyword_hits": 6,
+      "top_keyword_posts": [
+        {
+          "title": "Local Llm hardware",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLM/comments/1ry5ma5/local_llm_hardware/"
+        },
+        {
+          "title": "Help understand the localLLM setup better",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLM/comments/1ry08gs/help_understand_the_localllm_setup_better/"
+        },
+        {
+          "title": "A Multimodal RAG Dashboard with an Interactive Knowledge Gra",
+          "keywords": [
+            "knowledge graph",
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLM/comments/1rxvwij/a_multimodal_rag_dashboard_with_an_interactive/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/LocalLLM/new/.rss"
+    },
+    {
+      "subreddit": "aiagents",
+      "subscribers": 97026,
+      "description": "AI Agents may be one of the primary conceptual frameworks for humanity\u2019s deployment of applied AI.\n\nTools, commentary and talent",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_url": "https://www.reddit.com/r/aiagents/comments/1ry6i51/whats_your_biggest_headache_with_h100_clusters/",
+      "posts_in_feed": 25,
+      "keyword_hits": 15,
+      "weighted_keyword_hits": 19,
+      "top_keyword_posts": [
+        {
+          "title": "We\u2019re seeing AI agents work well for the first 80% of intera",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/aiagents/comments/1ry3qat/were_seeing_ai_agents_work_well_for_the_first_80/"
+        },
+        {
+          "title": "I built an AI agent that can book appointments for you by ch",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/aiagents/comments/1rxy6vp/i_built_an_ai_agent_that_can_book_appointments/"
+        },
+        {
+          "title": "GPT 5.4 & GPT 5.4 Pro + Claude Opus 4.6 & Sonnet 4.6 + Gemin",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/aiagents/comments/1rxy584/gpt_54_gpt_54_pro_claude_opus_46_sonnet_46_gemini/"
+        },
+        {
+          "title": "AI agent hacked McKinsey's chatbot and gained full read-writ",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/aiagents/comments/1rxxnhc/ai_agent_hacked_mckinseys_chatbot_and_gained_full/"
+        },
+        {
+          "title": "Solution to AI Agent Prompt Injection, Hijacking and Info Le",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/aiagents/comments/1rxts53/solution_to_ai_agent_prompt_injection_hijacking/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/aiagents/new/.rss"
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "subscribers": 656599,
+      "description": "Subreddit to discuss locally hostable AI",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Will minimax m2.7 be opensourced ?? There is no announcement in that regards on their X handle.",
+      "last_post_url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry7ugu/will_minimax_m27_be_opensourced_there_is_no/",
+      "posts_in_feed": 25,
+      "keyword_hits": 5,
+      "weighted_keyword_hits": 5,
+      "top_keyword_posts": [
+        {
+          "title": "I traced every layer of the stack when you send a prompt to ",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry7dwt/i_traced_every_layer_of_the_stack_when_you_send_a/"
+        },
+        {
+          "title": "Traditional RAG has a silent failure mode nobody talks about",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry7ac0/traditional_rag_has_a_silent_failure_mode_nobody/"
+        },
+        {
+          "title": "How do you prove what an LLM actually returned after the fac",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry6t38/how_do_you_prove_what_an_llm_actually_returned/"
+        },
+        {
+          "title": "Autoresearching Apple's \"LLM in a Flash\" to run Qwen 397B lo",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry5j2l/autoresearching_apples_llm_in_a_flash_to_run_qwen/"
+        },
+        {
+          "title": "Help finding best coding LLM for my setup",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry5ix3/help_finding_best_coding_llm_for_my_setup/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/LocalLLaMA/new/.rss"
+    },
+    {
+      "subreddit": "MicrosoftFabric",
+      "subscribers": 22788,
+      "description": "Everything you need to know about Microsoft Fabric: news, resources, and a community of users ready to answer questions!",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Real time capacity monitor alerts?",
+      "last_post_url": "https://www.reddit.com/r/MicrosoftFabric/comments/1ry50q0/real_time_capacity_monitor_alerts/",
+      "posts_in_feed": 25,
+      "keyword_hits": 0,
+      "weighted_keyword_hits": 0,
+      "top_keyword_posts": [],
+      "rss_url": "https://www.reddit.com/r/MicrosoftFabric/new/.rss"
+    },
+    {
+      "subreddit": "AISystemsEngineering",
+      "subscribers": 310,
+      "description": "A community for developers, architects, and researchers building real-world AI systems. Discuss enterprise AI architecture, LLM engineering, agentic AI, RAG, MLOps, distributed systems, cloud adoption",
+      "relevance_score": 37.5,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "How are companies turning internal documents and knowledge bases into usable AI systems?",
+      "last_post_url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rxz8ud/how_are_companies_turning_internal_documents_and/",
+      "posts_in_feed": 25,
+      "keyword_hits": 9,
+      "weighted_keyword_hits": 9,
+      "top_keyword_posts": [
+        {
+          "title": "Even if an AI is correct, it must follow rules and policies.",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-11",
+          "url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rqpayl/even_if_an_ai_is_correct_it_must_follow_rules_and/"
+        },
+        {
+          "title": "How do you make AI agent outputs reliable in the industry? P",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rptves/how_do_you_make_ai_agent_outputs_reliable_in_the/"
+        },
+        {
+          "title": "Is Enterprise RAG in Healthcare a Retrieval Problem or a Gov",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rpqazc/is_enterprise_rag_in_healthcare_a_retrieval/"
+        },
+        {
+          "title": "Looking to Speak with AI Agent Engineers for Senior Capstone",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-09",
+          "url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rph2rb/looking_to_speak_with_ai_agent_engineers_for/"
+        },
+        {
+          "title": "What Does Observability Look Like in Multi-Agent RAG Archite",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-04",
+          "url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rkixdz/what_does_observability_look_like_in_multiagent/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AISystemsEngineering/new/.rss"
+    },
+    {
+      "subreddit": "modelcontextprotocol",
+      "subscribers": 22998,
+      "description": "The Model Context Protocol (MCP) is an open protocol that enables seamless integration between LLM applications and external data sources and tools. \n\nDISCORD: https://discord.gg/3uqNS3KRP2",
+      "relevance_score": 43,
+      "tier": "Tier 2",
+      "last_post_date": "2026-03-16",
+      "days_ago": 3,
+      "last_post_title": "Common ChatGPT app rejections (and how to fix them)",
+      "last_post_url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rvk725/common_chatgpt_app_rejections_and_how_to_fix_them/",
+      "posts_in_feed": 25,
+      "keyword_hits": 7,
+      "weighted_keyword_hits": 21,
+      "top_keyword_posts": [
+        {
+          "title": "I built a Google Calendar MCP server with interactive UI \u2014 e",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-14",
+          "url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rtw64g/i_built_a_google_calendar_mcp_server_with/"
+        },
+        {
+          "title": "MCP server that renders interactive dashboards directly in t",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-14",
+          "url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rtn2s3/mcp_server_that_renders_interactive_dashboards/"
+        },
+        {
+          "title": "BREAKING CHANGE: Remove MCP server mode",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-07",
+          "url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rnidqq/breaking_change_remove_mcp_server_mode/"
+        },
+        {
+          "title": "MCPX: turn MCP servers into a composable CLI for agent workf",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-03-01",
+          "url": "https://www.reddit.com/r/modelcontextprotocol/comments/1ri2jnr/mcpx_turn_mcp_servers_into_a_composable_cli_for/"
+        },
+        {
+          "title": "MCP-Doppelganger - Deprecate MCP Servers gracefully",
+          "keywords": [
+            "mcp server"
+          ],
+          "date": "2026-02-26",
+          "url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rfcia9/mcpdoppelganger_deprecate_mcp_servers_gracefully/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/modelcontextprotocol/new/.rss"
+    },
+    {
+      "subreddit": "vectordatabase",
+      "subscribers": 10235,
+      "description": "A place to discuss open-source vector database and vector search applications, features and functionality to drive next-generation solutions. Check out our own Open-source Github at https://github.com",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-18",
+      "days_ago": 1,
+      "last_post_title": "Elastic{ON} London 2026 Highlights",
+      "last_post_url": "https://www.reddit.com/r/vectordatabase/comments/1rxd2y8/elasticon_london_2026_highlights/",
+      "posts_in_feed": 25,
+      "keyword_hits": 4,
+      "weighted_keyword_hits": 4,
+      "top_keyword_posts": [
+        {
+          "title": "Benchmarking vector storage: quantization and matryoshka emb",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-12",
+          "url": "https://www.reddit.com/r/vectordatabase/comments/1rs24hu/benchmarking_vector_storage_quantization_and/"
+        },
+        {
+          "title": "\"Noetic RAG\" \u00ac vector based retrieval on the thinking, not j",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-06",
+          "url": "https://www.reddit.com/r/vectordatabase/comments/1rmewvy/noetic_rag_vector_based_retrieval_on_the_thinking/"
+        },
+        {
+          "title": "The Full Graph-RAG Stack As Declarative Pipelines in Cypher",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-03",
+          "url": "https://www.reddit.com/r/vectordatabase/comments/1rk0xzf/the_full_graphrag_stack_as_declarative_pipelines/"
+        },
+        {
+          "title": "Vector Databases Are Dead ? Build RAG With Pure Reasoning Fu",
+          "keywords": [
+            "rag"
+          ],
+          "date": "2026-03-02",
+          "url": "https://www.reddit.com/r/vectordatabase/comments/1rin3xe/vector_databases_are_dead_build_rag_with_pure/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/vectordatabase/new/.rss"
+    },
+    {
+      "subreddit": "BusinessIntelligence",
+      "subscribers": 226715,
+      "description": "Business Intelligence is the process of utilizing organizational data, technology, analytics, and the knowledge of subject matter experts to create data-driven decisions via dashboards, reports, alert",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Created custom visualization on dataset about cost to sequence a human genome. All using Observable Plot on DataHub.io",
+      "last_post_url": "https://www.reddit.com/r/BusinessIntelligence/comments/1ry5cte/created_custom_visualization_on_dataset_about/",
+      "posts_in_feed": 25,
+      "keyword_hits": 1,
+      "weighted_keyword_hits": 4,
+      "top_keyword_posts": [
+        {
+          "title": "Created custom visualization on dataset about cost to sequen",
+          "keywords": [
+            "datahub"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/BusinessIntelligence/comments/1ry5cte/created_custom_visualization_on_dataset_about/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/BusinessIntelligence/new/.rss"
+    },
+    {
+      "subreddit": "snowflake",
+      "subscribers": 22519,
+      "description": "r/snowflake: The Unofficial Data Cloud Community\n\nThe premier hub for Snowflake Data Cloud architects and engineers. Master SQL performance, Snowpark (Python), and Cortex AI through real-world discuss",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Automated Documentation - tips?",
+      "last_post_url": "https://www.reddit.com/r/snowflake/comments/1ry0xk7/automated_documentation_tips/",
+      "posts_in_feed": 25,
+      "keyword_hits": 3,
+      "weighted_keyword_hits": 8,
+      "top_keyword_posts": [
+        {
+          "title": "Snowflake Product Series: Data Governance & Security in the ",
+          "keywords": [
+            "data governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/snowflake/comments/1rx84vn/snowflake_product_series_data_governance_security/"
+        },
+        {
+          "title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+          "keywords": [
+            "data governance",
+            "ai governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/snowflake/comments/1rx47sg/data_governance_vs_ai_governance_why_its_the/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/snowflake/new/.rss"
+    },
+    {
+      "subreddit": "LangChain",
+      "subscribers": 90833,
+      "description": "LangChain is an open-source framework and developer toolkit that helps developers get LLM applications from prototype to production. \n\nIt is available for Python and Javascript at https://www.langchai",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "LiteParse: Local Document Parsing for Agents",
+      "last_post_url": "https://www.reddit.com/r/LangChain/comments/1ry5zoq/liteparse_local_document_parsing_for_agents/",
+      "posts_in_feed": 25,
+      "keyword_hits": 8,
+      "weighted_keyword_hits": 8,
+      "top_keyword_posts": [
+        {
+          "title": "argus-ai: Open-source G-ARVIS scoring engine for production ",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/LangChain/comments/1rxd3se/argusai_opensource_garvis_scoring_engine_for/"
+        },
+        {
+          "title": "Tool for testing LangChain AI agents in multi turn conversat",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/LangChain/comments/1rx9t11/tool_for_testing_langchain_ai_agents_in_multi/"
+        },
+        {
+          "title": "Is LLM/VLM based OCR better than ML based OCR for document R",
+          "keywords": [
+            "llm",
+            "rag"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/LangChain/comments/1rx6l5d/is_llmvlm_based_ocr_better_than_ml_based_ocr_for/"
+        },
+        {
+          "title": "Built a multi-agent LangGraph system with parallel fan-out, ",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/LangChain/comments/1rwyjrt/built_a_multiagent_langgraph_system_with_parallel/"
+        },
+        {
+          "title": "I built an open-source kernel that governs what AI agents ca",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/LangChain/comments/1rwmirf/i_built_an_opensource_kernel_that_governs_what_ai/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/LangChain/new/.rss"
+    },
+    {
+      "subreddit": "dataengineersindia",
+      "subscribers": 15530,
+      "description": "A dedicated space for data engineering professionals in India to connect, share knowledge, and tackle data challenges together.",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Help me with the resources and guidance",
+      "last_post_url": "https://www.reddit.com/r/dataengineersindia/comments/1ry6gu4/help_me_with_the_resources_and_guidance/",
+      "posts_in_feed": 25,
+      "keyword_hits": 0,
+      "weighted_keyword_hits": 0,
+      "top_keyword_posts": [],
+      "rss_url": "https://www.reddit.com/r/dataengineersindia/new/.rss"
+    },
+    {
+      "subreddit": "analytics",
+      "subscribers": 259195,
+      "description": "Dedicated to web analytics, data and business analytics. We're here to discuss analysis of data, learning of skills and implementation of web analytics.",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Anyone else tired of being pressured into AI adoption?",
+      "last_post_url": "https://www.reddit.com/r/analytics/comments/1ry4yks/anyone_else_tired_of_being_pressured_into_ai/",
+      "posts_in_feed": 25,
+      "keyword_hits": 0,
+      "weighted_keyword_hits": 0,
+      "top_keyword_posts": [],
+      "rss_url": "https://www.reddit.com/r/analytics/new/.rss"
+    },
+    {
+      "subreddit": "datascience",
+      "subscribers": 2730796,
+      "description": "A space for data science professionals to engage in discussions and debates on the subject of data science.",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "AI is coming for the parts of the job that were holding you back",
+      "last_post_url": "https://www.reddit.com/r/datascience/comments/1ry73eb/ai_is_coming_for_the_parts_of_the_job_that_were/",
+      "posts_in_feed": 25,
+      "keyword_hits": 1,
+      "weighted_keyword_hits": 2,
+      "top_keyword_posts": [
+        {
+          "title": "I've just open-sourced MessyData, a synthetic dirty data gen",
+          "keywords": [
+            "data quality"
+          ],
+          "date": "2026-03-09",
+          "url": "https://www.reddit.com/r/datascience/comments/1rp7ku6/ive_just_opensourced_messydata_a_synthetic_dirty/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/datascience/new/.rss"
+    },
+    {
+      "subreddit": "databricks",
+      "subscribers": 25061,
+      "description": "A place to discuss all things related to Databricks",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Can Databricks Real-Time Mode Replace Flink? Demo + Deep Dive with Databricks PM Navneeth Nair",
+      "last_post_url": "https://www.reddit.com/r/databricks/comments/1ry3lfb/can_databricks_realtime_mode_replace_flink_demo/",
+      "posts_in_feed": 25,
+      "keyword_hits": 4,
+      "weighted_keyword_hits": 13,
+      "top_keyword_posts": [
+        {
+          "title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+          "keywords": [
+            "data governance",
+            "ai governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/databricks/comments/1rx45b9/data_governance_vs_ai_governance_why_its_the/"
+        },
+        {
+          "title": "Managing Unity Catalog External Locations with Declarative A",
+          "keywords": [
+            "unity catalog"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/databricks/comments/1rwdjm6/managing_unity_catalog_external_locations_with/"
+        },
+        {
+          "title": "Best practices for Dev/Test/Prod isolation using a single Un",
+          "keywords": [
+            "unity catalog"
+          ],
+          "date": "2026-03-16",
+          "url": "https://www.reddit.com/r/databricks/comments/1rvn5uq/best_practices_for_devtestprod_isolation_using_a/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/databricks/new/.rss"
+    },
+    {
+      "subreddit": "mlops",
+      "subscribers": 31370,
+      "description": "The landing zone for anything MLOps - beginners and pros welcome. Vendors behave!",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-11",
+      "days_ago": 8,
+      "last_post_title": "Passed NVIDIA InfiniBand NCP-IB Exam \u2013 My Preparation Experience",
+      "last_post_url": "https://www.reddit.com/r/mlops/comments/1rqny4p/passed_nvidia_infiniband_ncpib_exam_my/",
+      "posts_in_feed": 25,
+      "keyword_hits": 9,
+      "weighted_keyword_hits": 9,
+      "top_keyword_posts": [
+        {
+          "title": "MemAlign: Building Better LLM Judges From Human Feedback Wit",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-11",
+          "url": "https://www.reddit.com/r/mlops/comments/1rqhbct/memalign_building_better_llm_judges_from_human/"
+        },
+        {
+          "title": "Running a self-hosted LLM proxy for a month, here's what I l",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-10",
+          "url": "https://www.reddit.com/r/mlops/comments/1rq7v7w/running_a_selfhosted_llm_proxy_for_a_month_heres/"
+        },
+        {
+          "title": "We built 3 features no AI agent platform offers: Risk Score,",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-09",
+          "url": "https://www.reddit.com/r/mlops/comments/1rpb9zu/we_built_3_features_no_ai_agent_platform_offers/"
+        },
+        {
+          "title": "Closing the production loop: LLM traces \u2192 synthetic data \u2192 f",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-09",
+          "url": "https://www.reddit.com/r/mlops/comments/1rp47s1/closing_the_production_loop_llm_traces_synthetic/"
+        },
+        {
+          "title": "Traffic Light: Production-ready orchestrator for multi-frame",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-08",
+          "url": "https://www.reddit.com/r/mlops/comments/1rof62i/traffic_light_productionready_orchestrator_for/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/mlops/new/.rss"
+    },
+    {
+      "subreddit": "LanguageTechnology",
+      "subscribers": 62361,
+      "description": "This sub will focus on theory, careers, and applications of NLP (Natural Language Processing), which includes anything from Regex &amp; Text Analytics to Transformers &amp; LLMs. \n\nLanguage learning &",
+      "relevance_score": 28,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Informatik, KI-Agenten und Austausch: Ein Hallo aus der Welt der LLMs",
+      "last_post_url": "https://www.reddit.com/r/LanguageTechnology/comments/1ry1jpw/informatik_kiagenten_und_austausch_ein_hallo_aus/",
+      "posts_in_feed": 25,
+      "keyword_hits": 5,
+      "weighted_keyword_hits": 6,
+      "top_keyword_posts": [
+        {
+          "title": "Informatik, KI-Agenten und Austausch: Ein Hallo aus der Welt",
+          "keywords": [
+            "llm"
+          ],
+          "date": "2026-03-19",
+          "url": "https://www.reddit.com/r/LanguageTechnology/comments/1ry1jpw/informatik_kiagenten_und_austausch_ein_hallo_aus/"
+        },
+        {
+          "title": "How are people handling ASR data quality issues in real-worl",
+          "keywords": [
+            "data quality"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/LanguageTechnology/comments/1rvz21x/how_are_people_handling_asr_data_quality_issues/"
+        },
+        {
+          "title": "What metrics actually matter when evaluating AI agents?",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-16",
+          "url": "https://www.reddit.com/r/LanguageTechnology/comments/1ruvtus/what_metrics_actually_matter_when_evaluating_ai/"
+        },
+        {
+          "title": "How do you debug AI agent failures after a regression?",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-15",
+          "url": "https://www.reddit.com/r/LanguageTechnology/comments/1ruqmvf/how_do_you_debug_ai_agent_failures_after_a/"
+        },
+        {
+          "title": "Anyone running AI agent tests in CI?",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2026-03-15",
+          "url": "https://www.reddit.com/r/LanguageTechnology/comments/1ruqmrd/anyone_running_ai_agent_tests_in_ci/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/LanguageTechnology/new/.rss"
+    },
+    {
+      "subreddit": "PowerBI",
+      "subscribers": 195098,
+      "description": "Everything you need to know about Power BI: news, resources, and a community of users ready to answer questions!",
+      "relevance_score": 20,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Image from Microsoft List to Power BI",
+      "last_post_url": "https://www.reddit.com/r/PowerBI/comments/1ry49a2/image_from_microsoft_list_to_power_bi/",
+      "posts_in_feed": 25,
+      "keyword_hits": 0,
+      "weighted_keyword_hits": 0,
+      "top_keyword_posts": [],
+      "rss_url": "https://www.reddit.com/r/PowerBI/new/.rss"
+    },
+    {
+      "subreddit": "AIGRC",
+      "subscribers": 128,
+      "description": "Artificial Intelligence - Governance, Risk and Compliance \ud83e\udd16 Where the future of AI meets the safety of today. We live in a transformative time where AI will change everything, but it shouldn't come at",
+      "relevance_score": 25.5,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-17",
+      "days_ago": 2,
+      "last_post_title": "AI Chatbot Risk in Financial Institution",
+      "last_post_url": "https://www.reddit.com/r/AIGRC/comments/1rvz6po/ai_chatbot_risk_in_financial_institution/",
+      "posts_in_feed": 15,
+      "keyword_hits": 3,
+      "weighted_keyword_hits": 5,
+      "top_keyword_posts": [
+        {
+          "title": "AI Governance has a Thanksgiving Problem",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2025-12-01",
+          "url": "https://www.reddit.com/r/AIGRC/comments/1pbin5t/ai_governance_has_a_thanksgiving_problem/"
+        },
+        {
+          "title": "The risks of AI agents and automations",
+          "keywords": [
+            "ai agent"
+          ],
+          "date": "2025-09-09",
+          "url": "https://www.reddit.com/r/AIGRC/comments/1nchke5/the_risks_of_ai_agents_and_automations/"
+        },
+        {
+          "title": "How AI Governance Unlocks Innovation, Instead of Blocking It",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2025-08-20",
+          "url": "https://www.reddit.com/r/AIGRC/comments/1mvcz3q/how_ai_governance_unlocks_innovation_instead_of/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AIGRC/new/.rss"
+    },
+    {
+      "subreddit": "AIgovernance",
+      "subscribers": 21,
+      "description": "A focused forum for serious discussion of AI governance, regulation, institutional oversight, and policy design.\n\nThis subreddit exists to examine how artificial intelligence is governed in practice. ",
+      "relevance_score": 21.6,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-19",
+      "days_ago": 0,
+      "last_post_title": "Who should actually control advanced AI: governments, companies, or independent bodies?",
+      "last_post_url": "https://www.reddit.com/r/AIgovernance/comments/1rxyiud/who_should_actually_control_advanced_ai/",
+      "posts_in_feed": 11,
+      "keyword_hits": 4,
+      "weighted_keyword_hits": 8,
+      "top_keyword_posts": [
+        {
+          "title": "AI Governance Might Be the Only Way Humanity Survives",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-16",
+          "url": "https://www.reddit.com/r/AIgovernance/comments/1ruyv1h/ai_governance_might_be_the_only_way_humanity/"
+        },
+        {
+          "title": "AIGP isn't a good measure of AI Governance competency",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-07",
+          "url": "https://www.reddit.com/r/AIgovernance/comments/1rn9tr6/aigp_isnt_a_good_measure_of_ai_governance/"
+        },
+        {
+          "title": "AI governance sections showing up in RFPs \u2014 what are you inc",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-02-13",
+          "url": "https://www.reddit.com/r/AIgovernance/comments/1r3poew/ai_governance_sections_showing_up_in_rfps_what/"
+        },
+        {
+          "title": "Is anyone interested in a co-op for Ai Governance?",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-01-24",
+          "url": "https://www.reddit.com/r/AIgovernance/comments/1qlen1f/is_anyone_interested_in_a_coop_for_ai_governance/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AIgovernance/new/.rss"
+    },
+    {
+      "subreddit": "AI_Governance",
+      "subscribers": 912,
+      "description": "Examining the impact of Artificial Intelligence on governance, dispute resolution, policing, and all things government and governance related.",
+      "relevance_score": 14.8,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-18",
+      "days_ago": 1,
+      "last_post_title": "AI governance system protocol",
+      "last_post_url": "https://www.reddit.com/r/AI_Governance/comments/1rxi45g/ai_governance_system_protocol/",
+      "posts_in_feed": 25,
+      "keyword_hits": 9,
+      "weighted_keyword_hits": 17,
+      "top_keyword_posts": [
+        {
+          "title": "AI governance system protocol",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-18",
+          "url": "https://www.reddit.com/r/AI_Governance/comments/1rxi45g/ai_governance_system_protocol/"
+        },
+        {
+          "title": "11 Rapid fire AI governance Questions",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-17",
+          "url": "https://www.reddit.com/r/AI_Governance/comments/1rvs7uo/11_rapid_fire_ai_governance_questions/"
+        },
+        {
+          "title": "Everyone is building AI Agents and Information overloading s",
+          "keywords": [
+            "ai governance",
+            "ai agent"
+          ],
+          "date": "2026-03-16",
+          "url": "https://www.reddit.com/r/AI_Governance/comments/1rvnmyh/everyone_is_building_ai_agents_and_information/"
+        },
+        {
+          "title": "AI governance auditing is becoming a real compliance require",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-13",
+          "url": "https://www.reddit.com/r/AI_Governance/comments/1rstlro/ai_governance_auditing_is_becoming_a_real/"
+        },
+        {
+          "title": "We're building an AI governance framework from scratch. What",
+          "keywords": [
+            "ai governance"
+          ],
+          "date": "2026-03-13",
+          "url": "https://www.reddit.com/r/AI_Governance/comments/1rsijmc/were_building_an_ai_governance_framework_from/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/AI_Governance/new/.rss"
+    },
+    {
+      "subreddit": "DataCentricAI",
+      "subscribers": 565,
+      "description": "If \"80% of Machine Learning is simply data cleaning\", perhaps we should focus on the data.\nA community for discussions on how to make the most of our datasets. \n\nResource hub: https://mindkosh.com/dat",
+      "relevance_score": 13.8,
+      "tier": "Tier 3",
+      "last_post_date": "2026-03-06",
+      "days_ago": 13,
+      "last_post_title": "Public data and ai",
+      "last_post_url": "https://www.reddit.com/r/DataCentricAI/comments/1rmjtsq/public_data_and_ai/",
+      "posts_in_feed": 25,
+      "keyword_hits": 1,
+      "weighted_keyword_hits": 3,
+      "top_keyword_posts": [
+        {
+          "title": "what is Master Data Governance- Was ist Master Data Governan",
+          "keywords": [
+            "data governance"
+          ],
+          "date": "2025-08-12",
+          "url": "https://www.reddit.com/r/DataCentricAI/comments/1mo8f64/what_is_master_data_governance_was_ist_master/"
+        }
+      ],
+      "rss_url": "https://www.reddit.com/r/DataCentricAI/new/.rss"
+    }
+  ]
+}

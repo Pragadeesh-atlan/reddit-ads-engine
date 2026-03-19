@@ -1,0 +1,478 @@
+#!/usr/bin/env python3
+"""
+scripts/reddit_daily.py
+Reddit Ads Daily Brief
+
+Runs the full daily workflow:
+1. Research — poll all seed subreddits for latest activity
+2. Compare — diff against yesterday's data
+3. Recommend — which subreddits/keywords to ADD or REMOVE from campaigns
+4. Output — Google Sheet with 2 tabs (Agent 1 Discovery + Agent 2 Latest Posts)
+   plus an action summary at the top
+
+Usage:
+    # Daily run — output to terminal
+    .venv/bin/python3 scripts/reddit_daily.py
+
+    # Daily run — push to Google Sheets
+    .venv/bin/python3 scripts/reddit_daily.py --sheets
+
+    # Add to existing sheet
+    .venv/bin/python3 scripts/reddit_daily.py --sheets --sheet-id YOUR_ID
+"""
+import argparse
+import json
+import math
+import os
+import subprocess
+import sys
+import time
+import xml.etree.ElementTree as ET
+from datetime import datetime, timedelta, timezone
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+SEED_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/seed-subreddits.json")
+YESTERDAY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/yesterday.json")
+TODAY_FILE = os.path.join(BASE_DIR, "intelligence/reddit-ads/today.json")
+HISTORY_DIR = os.path.join(BASE_DIR, "intelligence/reddit-ads/history")
+
+REDDIT = "https://www.reddit.com"
+ATOM = "http://www.w3.org/2005/Atom"
+UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+      "AppleWebKit/537.36 Chrome/122.0.0.0 Safari/537.36")
+
+# Subreddit is targetable if last post within this many days
+ACTIVE_DAYS = 3
+# Subreddit should be removed if no posts in this many days
+STALE_DAYS = 7
+
+# Context keywords with weights for scoring
+SIGNAL_TIERS = {
+    "context engineering": 5, "context layer": 5, "context graph": 5,
+    "enterprise context": 5, "ai context": 5, "context vacuum": 5,
+    "semantic layer": 3, "ontology": 3, "knowledge graph": 3,
+    "active metadata": 3, "data governance": 3, "data catalog": 3,
+    "metadata management": 3, "data lineage": 3,
+    "model context protocol": 3, "mcp server": 3,
+    "ai hallucination": 2, "ai governance": 2, "data quality": 2,
+    "context window": 2, "data mesh": 2,
+    "ai agent": 1, "llm": 1, "rag": 1,
+    "atlan": 4, "collibra": 4, "alation": 4, "informatica": 4,
+    "unity catalog": 4, "purview": 4, "datahub": 4,
+}
+
+HIGH_TERMS = [
+    "context engineering", "context layer", "context graph",
+    "enterprise context", "ai context", "ontology", "semantic layer",
+    "semantic web", "knowledge graph", "data governance", "data catalog",
+    "metadata", "data lineage", "active metadata", "data mesh",
+    "ai governance", "model context protocol", "mcp server",
+]
+MEDIUM_TERMS = [
+    "data engineering", "data quality", "rag", "retrieval augmented",
+    "llm", "ai agent", "business intelligence", "analytics engineering",
+    "data pipeline", "mlops", "vector database",
+]
+
+
+def fetch_subreddit(name: str) -> dict:
+    """Fetch subreddit info + latest posts from RSS."""
+    # Get subscriber count + description
+    subs = 0; desc = ""; title = ""
+    try:
+        result = subprocess.run(
+            ["curl", "-sL", "--max-time", "10", "-A", UA,
+             f"{REDDIT}/r/{name}/about.json"],
+            capture_output=True, timeout=15)
+        if result.stdout:
+            d = json.loads(result.stdout.decode("utf-8")).get("data", {})
+            subs = d.get("subscribers") or 0
+            desc = (d.get("public_description") or "")[:300]
+            title = d.get("title") or ""
+    except Exception:
+        pass
+    time.sleep(1)
+
+    # Get RSS feed
+    posts = []
+    try:
+        result = subprocess.run(
+            ["curl", "-sL", "--max-time", "10", "-A", UA,
+             f"{REDDIT}/r/{name}/new/.rss"],
+            capture_output=True, timeout=15)
+        if result.stdout:
+            root = ET.fromstring(result.stdout)
+            for entry in root.findall(f"{{{ATOM}}}entry"):
+                t_el = entry.find(f"{{{ATOM}}}title")
+                t = (t_el.text or "").strip() if t_el is not None else ""
+                p_el = entry.find(f"{{{ATOM}}}published")
+                p = p_el.text.strip()[:10] if p_el is not None and p_el.text else ""
+                url = ""
+                for link in entry.findall(f"{{{ATOM}}}link"):
+                    if link.get("rel", "alternate") == "alternate":
+                        url = link.get("href", "")
+                        break
+                posts.append({"title": t, "date": p, "url": url})
+    except Exception:
+        pass
+    time.sleep(1)
+
+    # Latest post info
+    last_title = posts[0]["title"] if posts else "(no posts)"
+    last_date = posts[0]["date"] if posts else ""
+    last_url = posts[0]["url"] if posts else ""
+    days_ago = None
+    if last_date:
+        try:
+            dt = datetime.strptime(last_date, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            days_ago = (datetime.now(timezone.utc) - dt).days
+        except ValueError:
+            pass
+
+    # Keyword analysis across all posts
+    kw_hits = 0
+    weighted_hits = 0
+    top_kw_posts = []
+    for post in posts[:25]:
+        text = post["title"].lower()
+        matches = []
+        weight = 0
+        for kw, w in SIGNAL_TIERS.items():
+            if kw in text:
+                matches.append(kw)
+                weight += w
+        if matches:
+            kw_hits += len(matches)
+            weighted_hits += weight
+            top_kw_posts.append({
+                "title": post["title"][:60],
+                "keywords": matches[:3],
+                "date": post["date"],
+                "url": post["url"],
+            })
+
+    # Relevance score
+    txt = (desc + " " + title + " " + name).lower()
+    high = [t for t in HIGH_TERMS if t in txt]
+    med = [t for t in MEDIUM_TERMS if t in txt]
+    rel_score = min(len(high) * 15, 45) + min(len(med) * 8, 25)
+    if subs > 0:
+        rel_score += min(math.log10(max(subs, 1)) * 5, 20)
+    tier = "Tier 1" if rel_score >= 50 else ("Tier 2" if rel_score >= 30 else "Tier 3")
+
+    return {
+        "subreddit": name,
+        "subscribers": subs,
+        "description": desc[:200],
+        "relevance_score": round(rel_score, 1),
+        "tier": tier,
+        "last_post_date": last_date,
+        "days_ago": days_ago,
+        "last_post_title": last_title,
+        "last_post_url": last_url,
+        "posts_in_feed": len(posts),
+        "keyword_hits": kw_hits,
+        "weighted_keyword_hits": weighted_hits,
+        "top_keyword_posts": top_kw_posts[:5],
+        "rss_url": f"{REDDIT}/r/{name}/new/.rss",
+    }
+
+
+def run(push_sheets: bool = False, sheet_id: str = "") -> None:
+    # Load seeds
+    with open(SEED_FILE) as f:
+        seeds = json.load(f)["subreddits"]
+
+    # Load yesterday's data
+    yesterday = {}
+    if os.path.exists(YESTERDAY_FILE):
+        with open(YESTERDAY_FILE) as f:
+            yd = json.load(f)
+        for s in yd.get("subreddits", []):
+            yesterday[s["subreddit"]] = s
+
+    print(f"\n{'='*70}", file=sys.stderr)
+    print(f"  Reddit Ads Daily Brief — {datetime.now(timezone.utc).strftime('%Y-%m-%d %H:%M')} UTC", file=sys.stderr)
+    print(f"  Researching {len(seeds)} subreddits...", file=sys.stderr)
+    print(f"{'='*70}\n", file=sys.stderr)
+
+    # Research all subreddits
+    today = []
+    for i, name in enumerate(seeds, 1):
+        print(f"  [{i}/{len(seeds)}] r/{name}...", end="", file=sys.stderr)
+        data = fetch_subreddit(name)
+        today.append(data)
+        d = data["days_ago"]
+        icon = "🟢" if d is not None and d <= ACTIVE_DAYS else ("🟡" if d is not None and d <= STALE_DAYS else "🔴")
+        print(f" {icon} {data['last_post_date']} ({d or '?'}d) kw={data['keyword_hits']}", file=sys.stderr)
+
+    # ── Compare with yesterday → generate actions ────────────────────────
+    actions = []
+    yesterday_active = {s["subreddit"] for s in yesterday.values()
+                        if s.get("days_ago") is not None and s["days_ago"] <= ACTIVE_DAYS}
+    today_active = {s["subreddit"] for s in today
+                    if s.get("days_ago") is not None and s["days_ago"] <= ACTIVE_DAYS}
+    today_stale = {s["subreddit"] for s in today
+                   if s.get("days_ago") is None or s["days_ago"] > STALE_DAYS}
+
+    # New activations — active today but wasn't yesterday
+    for name in sorted(today_active - yesterday_active):
+        s = next(x for x in today if x["subreddit"] == name)
+        actions.append({
+            "action": "ADD",
+            "subreddit": name,
+            "reason": f"Became active — last post {s['days_ago']}d ago" +
+                      (f", {s['keyword_hits']} context keywords" if s["keyword_hits"] else ""),
+            "subscribers": s["subscribers"],
+            "last_post": s["last_post_title"][:60],
+            "last_post_date": s["last_post_date"],
+            "keyword_hits": s["keyword_hits"],
+        })
+
+    # Removals — was active yesterday but now stale
+    for name in sorted(yesterday_active & today_stale):
+        s = next(x for x in today if x["subreddit"] == name)
+        actions.append({
+            "action": "REMOVE",
+            "subreddit": name,
+            "reason": f"Went stale — no posts in {s['days_ago'] or '?'} days",
+            "subscribers": s["subscribers"],
+            "last_post": s["last_post_title"][:60],
+            "last_post_date": s["last_post_date"],
+            "keyword_hits": s["keyword_hits"],
+        })
+
+    # Keep — active both days (no action needed, but show for awareness)
+    for name in sorted(today_active & yesterday_active):
+        s = next(x for x in today if x["subreddit"] == name)
+        actions.append({
+            "action": "KEEP",
+            "subreddit": name,
+            "reason": "Still active",
+            "subscribers": s["subscribers"],
+            "last_post": s["last_post_title"][:60],
+            "last_post_date": s["last_post_date"],
+            "keyword_hits": s["keyword_hits"],
+        })
+
+    # ── Save today's data as "yesterday" for tomorrow ────────────────────
+    os.makedirs(os.path.dirname(YESTERDAY_FILE), exist_ok=True)
+    os.makedirs(HISTORY_DIR, exist_ok=True)
+
+    today_data = {
+        "date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
+        "subreddits": today,
+    }
+    with open(YESTERDAY_FILE, "w") as f:
+        json.dump(today_data, f, indent=2)
+    with open(TODAY_FILE, "w") as f:
+        json.dump(today_data, f, indent=2)
+
+    # Save dated history
+    date_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    with open(os.path.join(HISTORY_DIR, f"{date_str}.json"), "w") as f:
+        json.dump(today_data, f, indent=2)
+
+    # ── Print results ────────────────────────────────────────────────────
+    adds = [a for a in actions if a["action"] == "ADD"]
+    removes = [a for a in actions if a["action"] == "REMOVE"]
+    keeps = [a for a in actions if a["action"] == "KEEP"]
+
+    print(f"\n{'='*70}", file=sys.stderr)
+    print(f"  DAILY ACTIONS", file=sys.stderr)
+    print(f"{'='*70}", file=sys.stderr)
+
+    if adds:
+        print(f"\n  🟢 ADD to campaign ({len(adds)}):", file=sys.stderr)
+        for a in adds:
+            print(f"     r/{a['subreddit']:<25} — {a['reason']}", file=sys.stderr)
+
+    if removes:
+        print(f"\n  🔴 REMOVE from campaign ({len(removes)}):", file=sys.stderr)
+        for a in removes:
+            print(f"     r/{a['subreddit']:<25} — {a['reason']}", file=sys.stderr)
+
+    if keeps:
+        print(f"\n  ⚪ KEEP in campaign ({len(keeps)}):", file=sys.stderr)
+        for a in keeps:
+            print(f"     r/{a['subreddit']:<25} kw={a['keyword_hits']}", file=sys.stderr)
+
+    if not adds and not removes:
+        print(f"\n  No changes from yesterday.", file=sys.stderr)
+
+    # Active subreddit list for copy-paste into Reddit Ads Manager
+    active_list = sorted(today_active)
+    print(f"\n  📋 Active subreddits for targeting ({len(active_list)}):", file=sys.stderr)
+    print(f"     {', '.join(active_list)}", file=sys.stderr)
+
+    # Suggested keywords from top keyword posts
+    all_kw = {}
+    for s in today:
+        for p in s.get("top_keyword_posts", []):
+            for kw in p.get("keywords", []):
+                all_kw[kw] = all_kw.get(kw, 0) + SIGNAL_TIERS.get(kw, 1)
+    top_keywords = sorted(all_kw.items(), key=lambda x: x[1], reverse=True)[:15]
+    if top_keywords:
+        print(f"\n  🔑 Suggested keywords for targeting:", file=sys.stderr)
+        print(f"     {', '.join(kw for kw, _ in top_keywords)}", file=sys.stderr)
+
+    print(f"\n{'='*70}\n", file=sys.stderr)
+
+    # Print full table
+    print(f"\n{'#':<3} {'Subreddit':<28} {'Subs':>10} {'Score':>6} {'Tier':<7} "
+          f"{'Last Post':<12} {'Days':>5} {'KW':>4}  Latest Conversation")
+    print("─" * 120)
+    for i, s in enumerate(sorted(today, key=lambda x: (x["days_ago"] or 9999, -(x["keyword_hits"] or 0))), 1):
+        d = s["days_ago"]
+        icon = "🟢" if d is not None and d <= ACTIVE_DAYS else ("🟡" if d is not None and d <= STALE_DAYS else "🔴")
+        days = str(d) if d is not None else "?"
+        print(f"{i:<3} r/{s['subreddit']:<26} {s['subscribers']:>10,} {s['relevance_score']:>6.0f} "
+              f"{s['tier']:<7} {s['last_post_date']:<12} {days:>5} {s['keyword_hits']:>4}  "
+              f"{s['last_post_title'][:50]}")
+
+    # Push to sheets
+    if push_sheets:
+        _push_to_sheets(today, actions, active_list, top_keywords, sheet_id)
+
+
+def _push_to_sheets(today, actions, active_list, top_keywords, sheet_id):
+    """Create Google Sheet with Agent 1 + Agent 2 tabs."""
+    try:
+        from google.oauth2.credentials import Credentials
+        from googleapiclient.discovery import build
+        import google.auth.transport.requests
+    except ImportError:
+        print("  [ERROR] google-api-python-client not installed", file=sys.stderr)
+        return
+
+    adc_path = os.path.expanduser("~/.config/gcloud/application_default_credentials.json")
+    with open(adc_path) as f:
+        adc = json.load(f)
+    creds = Credentials(
+        token=None, refresh_token=adc["refresh_token"],
+        token_uri="https://oauth2.googleapis.com/token",
+        client_id=adc["client_id"], client_secret=adc["client_secret"],
+        quota_project_id=adc.get("quota_project_id"),
+    )
+    creds.refresh(google.auth.transport.requests.Request())
+    service = build("sheets", "v4", credentials=creds)
+
+    date = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    if not sheet_id:
+        body = {
+            "properties": {"title": f"Reddit Ads Daily — {date}"},
+            "sheets": [
+                {"properties": {"title": "Discovery (Agent 1)", "index": 0}},
+                {"properties": {"title": "Latest Posts (Agent 2)", "index": 1}},
+            ],
+        }
+        result = service.spreadsheets().create(body=body).execute()
+        sheet_id = result["spreadsheetId"]
+        print(f"  Created: {result['spreadsheetUrl']}", file=sys.stderr)
+    else:
+        try:
+            service.spreadsheets().batchUpdate(
+                spreadsheetId=sheet_id,
+                body={"requests": [
+                    {"addSheet": {"properties": {"title": f"Discovery {date}", "index": 0}}},
+                    {"addSheet": {"properties": {"title": f"Latest Posts {date}", "index": 1}}},
+                ]},
+            ).execute()
+        except Exception as e:
+            print(f"  [WARN] {e}", file=sys.stderr)
+
+    meta = service.spreadsheets().get(spreadsheetId=sheet_id).execute()
+    sheets = meta["sheets"]
+    disc_tab = sheets[0]["properties"]["title"]
+    disc_id = sheets[0]["properties"]["sheetId"]
+    posts_tab = sheets[1]["properties"]["title"]
+    posts_id = sheets[1]["properties"]["sheetId"]
+
+    # ── Tab 1: Discovery (Agent 1) ──────────────────────────────────────
+    disc_header = ["Rank", "Subreddit", "Subscribers", "Relevance Score",
+                   "Tier", "Description", "RSS URL", "Score Breakdown"]
+    disc_rows = [disc_header]
+    for i, s in enumerate(sorted(today, key=lambda x: -x["relevance_score"]), 1):
+        disc_rows.append([
+            i, f"r/{s['subreddit']}", s["subscribers"], s["relevance_score"],
+            s["tier"], s["description"], s["rss_url"], "",
+        ])
+
+    service.spreadsheets().values().update(
+        spreadsheetId=sheet_id, range=f"'{disc_tab}'!A1",
+        valueInputOption="RAW", body={"values": disc_rows},
+    ).execute()
+
+    # ── Tab 2: Latest Posts (Agent 2) ───────────────────────────────────
+    posts_header = ["#", "Subreddit", "Subscribers", "Last Post Date",
+                    "Days Ago", "Latest Conversation", "Post URL"]
+    posts_rows = [posts_header]
+    for i, s in enumerate(sorted(today, key=lambda x: (x["days_ago"] or 9999)), 1):
+        posts_rows.append([
+            i, f"r/{s['subreddit']}", s["subscribers"],
+            s["last_post_date"], s["days_ago"] if s["days_ago"] is not None else "",
+            s["last_post_title"], s["last_post_url"],
+        ])
+
+    service.spreadsheets().values().update(
+        spreadsheetId=sheet_id, range=f"'{posts_tab}'!A1",
+        valueInputOption="RAW", body={"values": posts_rows},
+    ).execute()
+
+    # ── Formatting ──────────────────────────────────────────────────────
+    requests = []
+    for tab_id, num_cols in [(disc_id, 8), (posts_id, 7)]:
+        requests.extend([
+            {"repeatCell": {
+                "range": {"sheetId": tab_id, "startRowIndex": 0, "endRowIndex": 1},
+                "cell": {"userEnteredFormat": {
+                    "textFormat": {"bold": True},
+                    "backgroundColor": {"red": 0.85, "green": 0.92, "blue": 1.0, "alpha": 1.0},
+                }},
+                "fields": "userEnteredFormat(textFormat,backgroundColor)",
+            }},
+            {"updateSheetProperties": {
+                "properties": {"sheetId": tab_id, "gridProperties": {"frozenRowCount": 1}},
+                "fields": "gridProperties.frozenRowCount",
+            }},
+            {"autoResizeDimensions": {
+                "dimensions": {"sheetId": tab_id, "dimension": "COLUMNS",
+                              "startIndex": 0, "endIndex": num_cols},
+            }},
+        ])
+
+    # Color code Latest Posts rows
+    for row_idx, row in enumerate(posts_rows[1:], 1):
+        d = row[4]
+        if isinstance(d, int):
+            if d <= 1:
+                color = {"red": 0.85, "green": 0.95, "blue": 0.85}
+            elif d <= 3:
+                color = {"red": 0.9, "green": 0.95, "blue": 0.85}
+            elif d <= 7:
+                color = {"red": 1.0, "green": 0.95, "blue": 0.8}
+            else:
+                color = {"red": 0.95, "green": 0.85, "blue": 0.85}
+            requests.append({"repeatCell": {
+                "range": {"sheetId": posts_id, "startRowIndex": row_idx,
+                         "endRowIndex": row_idx + 1},
+                "cell": {"userEnteredFormat": {
+                    "backgroundColor": {**color, "alpha": 1.0},
+                }},
+                "fields": "userEnteredFormat(backgroundColor)",
+            }})
+
+    service.spreadsheets().batchUpdate(
+        spreadsheetId=sheet_id, body={"requests": requests},
+    ).execute()
+
+    print(f"  Sheet: https://docs.google.com/spreadsheets/d/{sheet_id}/edit", file=sys.stderr)
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description="Reddit Ads Daily Brief")
+    parser.add_argument("--sheets", action="store_true")
+    parser.add_argument("--sheet-id", default="")
+    args = parser.parse_args()
+    run(push_sheets=args.sheets, sheet_id=args.sheet_id)
