@@ -138,11 +138,13 @@ BLOCKLIST = {
     "productivity", "DataHoarder", "Metaphysics", "networking",
     "GeminiAI", "GoogleGeminiAI", "ManusOfficial", "ClaudeAI", "windsurf",
     "Taskade", "codex", "AngelInvesting", "polymarket_bets",
+    "HOPR", "FetchAI_Community", "spaceandtimecrypto", "aelfofficial",
+    "metalworking", "RPChristians",
 }
 
 
 def _search_subreddits(query: str, limit: int = 10) -> list[dict]:
-    """Search Reddit for subreddits matching a query."""
+    """Method 1: Search for subreddits by name/description."""
     params = urllib.parse.urlencode({"q": query, "limit": limit, "sort": "relevance"})
     url = f"{REDDIT}/subreddits/search.json?{params}"
     try:
@@ -156,7 +158,7 @@ def _search_subreddits(query: str, limit: int = 10) -> list[dict]:
         for child in data.get("data", {}).get("children", []):
             d = child.get("data", {})
             name = d.get("display_name", "")
-            if name and name not in BLOCKLIST and not d.get("over18", False):
+            if name and not d.get("over18", False):
                 results.append({
                     "name": name,
                     "subscribers": d.get("subscribers") or 0,
@@ -168,8 +170,13 @@ def _search_subreddits(query: str, limit: int = 10) -> list[dict]:
 
 
 def discover_new_subreddits(known: set[str]) -> list[dict]:
-    """Search for new subreddits not in our seed list. Rotates 5 keywords per day."""
-    # Load blocklist additions
+    """
+    Discovery via subreddit name + description matching only.
+    Searches Reddit for subreddits whose name or description contains
+    our context/AI/data keywords. No global post search (too noisy).
+
+    Runs ALL keywords every day.
+    """
     extra_blocked = set()
     if os.path.exists(BLOCKLIST_FILE):
         try:
@@ -179,43 +186,45 @@ def discover_new_subreddits(known: set[str]) -> list[dict]:
             pass
     blocked = BLOCKLIST | extra_blocked | known
 
-    # Rotate 5 keywords per day to avoid rate limits
-    day_of_year = datetime.now(timezone.utc).timetuple().tm_yday
-    start = (day_of_year * 5) % len(DISCOVERY_KEYWORDS)
-    today_keywords = []
-    for i in range(5):
-        idx = (start + i) % len(DISCOVERY_KEYWORDS)
-        today_keywords.append(DISCOVERY_KEYWORDS[idx])
+    print(f"\n  {'='*60}", file=sys.stderr)
+    print(f"  🔍 Discovery — searching for new subreddits", file=sys.stderr)
+    print(f"     Matching by subreddit name + description", file=sys.stderr)
+    print(f"     Keywords: {len(DISCOVERY_KEYWORDS)}", file=sys.stderr)
+    print(f"  {'='*60}\n", file=sys.stderr)
 
-    print(f"\n  🔍 Discovery — searching for new subreddits...", file=sys.stderr)
-    print(f"     Today's keywords: {', '.join(today_keywords)}", file=sys.stderr)
+    found: dict[str, dict] = {}
 
-    found = {}
-    for kw in today_keywords:
-        print(f"     Searching: \"{kw}\"...", end="", file=sys.stderr)
+    for i, kw in enumerate(DISCOVERY_KEYWORDS, 1):
+        print(f"  [{i}/{len(DISCOVERY_KEYWORDS)}] \"{kw}\"", end="", file=sys.stderr)
         results = _search_subreddits(kw, limit=10)
         new = 0
         for sub in results:
             name = sub["name"]
-            if name not in blocked and name not in found:
-                # Quick relevance check — must have at least one high/medium term
-                txt = (sub["description"] + " " + name).lower()
-                has_signal = any(t in txt for t in HIGH_TERMS + MEDIUM_TERMS)
-                if has_signal and sub["subscribers"] >= 10:
-                    found[name] = sub
-                    new += 1
-        print(f" {new} new", file=sys.stderr)
-        time.sleep(3)
+            if name in blocked or name in found:
+                continue
+            # Must match a HIGH term in name or description
+            # (MEDIUM terms like "ai agent" are too broad for discovery)
+            txt = (sub.get("description", "") + " " + name).lower()
+            high_matches = [t for t in HIGH_TERMS if t in txt]
+            if high_matches and sub.get("subscribers", 0) >= 50:
+                sub["_score"] = len(high_matches) * 15
+                sub["_matched"] = high_matches[:3]
+                found[name] = sub
+                new += 1
+        print(f" → {new} new", file=sys.stderr)
+        time.sleep(2)
 
-    discoveries = sorted(found.values(), key=lambda x: -(x["subscribers"] or 0))
-    if discoveries:
-        print(f"     Found {len(discoveries)} new candidates:", file=sys.stderr)
-        for s in discoveries[:10]:
-            print(f"       r/{s['name']:<25} {s['subscribers']:>8,} subs  {s['description'][:40]}", file=sys.stderr)
-    else:
-        print(f"     No new subreddits found today.", file=sys.stderr)
+    qualified = sorted(found.values(), key=lambda x: (-x.get("_score", 0), -(x.get("subscribers", 0))))
 
-    return discoveries
+    print(f"\n  Discovery results:", file=sys.stderr)
+    print(f"     Subreddits scanned: {len(found) + len(blocked)}", file=sys.stderr)
+    print(f"     New + qualified: {len(qualified)}", file=sys.stderr)
+    if qualified:
+        for s in qualified[:10]:
+            matched = ", ".join(s.get("_matched", []))
+            print(f"       r/{s['name']:<25} {s.get('subscribers', 0):>8,} subs  matched: [{matched}]", file=sys.stderr)
+
+    return qualified
 
 
 def fetch_subreddit(name: str) -> dict:
