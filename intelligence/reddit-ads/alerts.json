@@ -1,0 +1,245 @@
+{
+  "generated_at": "2026-03-19T17:42:01.896031+00:00",
+  "alerts": [
+    {
+      "action": "START",
+      "subreddit": "dataengineering",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "The fastest Lucene/Tantivy alternative in C++ and the search",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 2
+    },
+    {
+      "action": "START",
+      "subreddit": "semanticweb",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "DBpedia core releases unavailable -- does anyone have copies",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 8
+    },
+    {
+      "action": "START",
+      "subreddit": "ContextEngineering",
+      "reason": "Became active \u2014 last post 1d ago, was ?d",
+      "last_post": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+      "last_post_date": "2026-03-18",
+      "keyword_hits": 12
+    },
+    {
+      "action": "START",
+      "subreddit": "AI_Agents",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 8
+    },
+    {
+      "action": "START",
+      "subreddit": "OntologyEngineering",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "What is \u201crevenue\u201d and why does it break data warehouses?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 10
+    },
+    {
+      "action": "START",
+      "subreddit": "Rag",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "StackOverflow-style site for coding agents",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 17
+    },
+    {
+      "action": "START",
+      "subreddit": "LLMDevs",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Most AI apps have no monetization path that isn\u2019t subscripti",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 8
+    },
+    {
+      "action": "START",
+      "subreddit": "AgentsOfAI",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 10
+    },
+    {
+      "action": "START",
+      "subreddit": "KnowledgeGraph",
+      "reason": "Became active \u2014 last post 1d ago, was ?d",
+      "last_post": "How do you approach knowledge elicitation when building know",
+      "last_post_date": "2026-03-18",
+      "keyword_hits": 9
+    },
+    {
+      "action": "START",
+      "subreddit": "MCPservers",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "I built an MCP server that makes Claude Code improve itself ",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 14
+    },
+    {
+      "action": "START",
+      "subreddit": "mcp",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "MCP is dead... again!",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 15
+    },
+    {
+      "action": "START",
+      "subreddit": "LocalLLM",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Local Llm hardware",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 4
+    },
+    {
+      "action": "START",
+      "subreddit": "aiagents",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 15
+    },
+    {
+      "action": "START",
+      "subreddit": "LocalLLaMA",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Scaling Karpathy's Autoresearch: What Happens When the Agent",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 4
+    },
+    {
+      "action": "START",
+      "subreddit": "MicrosoftFabric",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Real time capacity monitor alerts?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 0
+    },
+    {
+      "action": "START",
+      "subreddit": "AISystemsEngineering",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "How are companies turning internal documents and knowledge b",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 9
+    },
+    {
+      "action": "START",
+      "subreddit": "modelcontextprotocol",
+      "reason": "Became active \u2014 last post 3d ago, was ?d",
+      "last_post": "Common ChatGPT app rejections (and how to fix them)",
+      "last_post_date": "2026-03-16",
+      "keyword_hits": 7
+    },
+    {
+      "action": "START",
+      "subreddit": "vectordatabase",
+      "reason": "Became active \u2014 last post 1d ago, was ?d",
+      "last_post": "Elastic{ON} London 2026 Highlights",
+      "last_post_date": "2026-03-18",
+      "keyword_hits": 4
+    },
+    {
+      "action": "START",
+      "subreddit": "BusinessIntelligence",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Created custom visualization on dataset about cost to sequen",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 1
+    },
+    {
+      "action": "START",
+      "subreddit": "snowflake",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Automated Documentation - tips?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 3
+    },
+    {
+      "action": "START",
+      "subreddit": "LangChain",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "LiteParse: Local Document Parsing for Agents",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 8
+    },
+    {
+      "action": "START",
+      "subreddit": "dataengineersindia",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Help me with the resources and guidance",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 0
+    },
+    {
+      "action": "START",
+      "subreddit": "analytics",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Anyone else tired of being pressured into AI adoption?",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 0
+    },
+    {
+      "action": "START",
+      "subreddit": "datascience",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "AI is coming for the parts of the job that were holding you ",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 1
+    },
+    {
+      "action": "START",
+      "subreddit": "databricks",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Can Databricks Real-Time Mode Replace Flink? Demo + Deep Div",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 4
+    },
+    {
+      "action": "START",
+      "subreddit": "LanguageTechnology",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Informatik, KI-Agenten und Austausch: Ein Hallo aus der Welt",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 5
+    },
+    {
+      "action": "START",
+      "subreddit": "PowerBI",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Image from Microsoft List to Power BI",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 0
+    },
+    {
+      "action": "START",
+      "subreddit": "AIGRC",
+      "reason": "Became active \u2014 last post 2d ago, was ?d",
+      "last_post": "AI Chatbot Risk in Financial Institution",
+      "last_post_date": "2026-03-17",
+      "keyword_hits": 3
+    },
+    {
+      "action": "START",
+      "subreddit": "AIgovernance",
+      "reason": "Became active \u2014 last post 0d ago, was ?d",
+      "last_post": "Who should actually control advanced AI: governments, compan",
+      "last_post_date": "2026-03-19",
+      "keyword_hits": 4
+    },
+    {
+      "action": "START",
+      "subreddit": "AI_Governance",
+      "reason": "Became active \u2014 last post 1d ago, was ?d",
+      "last_post": "AI governance system protocol",
+      "last_post_date": "2026-03-18",
+      "keyword_hits": 9
+    }
+  ]
+}

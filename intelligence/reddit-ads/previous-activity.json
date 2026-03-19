@@ -1,0 +1,269 @@
+{
+  "checked_at": "2026-03-19T17:42:01.893541+00:00",
+  "subreddits": [
+    {
+      "subreddit": "dataengineering",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "The fastest Lucene/Tantivy alternative in C++ and the search benchmark game",
+      "last_post_url": "https://www.reddit.com/r/dataengineering/comments/1ry692r/the_fastest_lucenetantivy_alternative_in_c_and/",
+      "keyword_hits": 2
+    },
+    {
+      "subreddit": "semanticweb",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "DBpedia core releases unavailable -- does anyone have copies or know a source?",
+      "last_post_url": "https://www.reddit.com/r/semanticweb/comments/1rxxb3y/dbpedia_core_releases_unavailable_does_anyone/",
+      "keyword_hits": 8
+    },
+    {
+      "subreddit": "ContextEngineering",
+      "last_post_date": "2026-03-18",
+      "days_since_last_post": 1,
+      "last_post_title": "Data Governance vs AI Governance: Why It\u2019s the Wrong Battle",
+      "last_post_url": "https://www.reddit.com/r/ContextEngineering/comments/1rx3tvp/data_governance_vs_ai_governance_why_its_the/",
+      "keyword_hits": 12
+    },
+    {
+      "subreddit": "AI_Agents",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_url": "https://www.reddit.com/r/AI_Agents/comments/1ry6dbl/whats_your_biggest_headache_with_h100_clusters/",
+      "keyword_hits": 8
+    },
+    {
+      "subreddit": "OntologyEngineering",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "What is \u201crevenue\u201d and why does it break data warehouses?",
+      "last_post_url": "https://www.reddit.com/r/OntologyEngineering/comments/1ry0apr/what_is_revenue_and_why_does_it_break_data/",
+      "keyword_hits": 10
+    },
+    {
+      "subreddit": "Rag",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "StackOverflow-style site for coding agents",
+      "last_post_url": "https://www.reddit.com/r/Rag/comments/1ry5ijy/stackoverflowstyle_site_for_coding_agents/",
+      "keyword_hits": 17
+    },
+    {
+      "subreddit": "LLMDevs",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Most AI apps have no monetization path that isn\u2019t subscriptions or API markup \u2014 is anyone working on this?",
+      "last_post_url": "https://www.reddit.com/r/LLMDevs/comments/1ry6neu/most_ai_apps_have_no_monetization_path_that_isnt/",
+      "keyword_hits": 8
+    },
+    {
+      "subreddit": "AgentsOfAI",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_url": "https://www.reddit.com/r/AgentsOfAI/comments/1ry6pt0/whats_your_biggest_headache_with_h100_clusters/",
+      "keyword_hits": 10
+    },
+    {
+      "subreddit": "KnowledgeGraph",
+      "last_post_date": "2026-03-18",
+      "days_since_last_post": 1,
+      "last_post_title": "How do you approach knowledge elicitation when building knowledge graphs?",
+      "last_post_url": "https://www.reddit.com/r/KnowledgeGraph/comments/1rx4ia5/how_do_you_approach_knowledge_elicitation_when/",
+      "keyword_hits": 9
+    },
+    {
+      "subreddit": "MCPservers",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "I built an MCP server that makes Claude Code improve itself from GitHub",
+      "last_post_url": "https://www.reddit.com/r/MCPservers/comments/1ry67wb/i_built_an_mcp_server_that_makes_claude_code/",
+      "keyword_hits": 14
+    },
+    {
+      "subreddit": "AIMemory",
+      "last_post_date": "2026-03-14",
+      "days_since_last_post": 5,
+      "last_post_title": "Some useful repos if you are building AI agents",
+      "last_post_url": "https://www.reddit.com/r/AIMemory/comments/1rtlowt/some_useful_repos_if_you_are_building_ai_agents/",
+      "keyword_hits": 3
+    },
+    {
+      "subreddit": "mcp",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "MCP is dead... again!",
+      "last_post_url": "https://www.reddit.com/r/mcp/comments/1ry3yuo/mcp_is_dead_again/",
+      "keyword_hits": 15
+    },
+    {
+      "subreddit": "LocalLLM",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Local Llm hardware",
+      "last_post_url": "https://www.reddit.com/r/LocalLLM/comments/1ry5ma5/local_llm_hardware/",
+      "keyword_hits": 4
+    },
+    {
+      "subreddit": "aiagents",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "What\u2019s your biggest headache with H100 clusters right now?",
+      "last_post_url": "https://www.reddit.com/r/aiagents/comments/1ry6i51/whats_your_biggest_headache_with_h100_clusters/",
+      "keyword_hits": 15
+    },
+    {
+      "subreddit": "LocalLLaMA",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Scaling Karpathy's Autoresearch: What Happens When the Agent Gets a GPU Cluster",
+      "last_post_url": "https://www.reddit.com/r/LocalLLaMA/comments/1ry6znj/scaling_karpathys_autoresearch_what_happens_when/",
+      "keyword_hits": 4
+    },
+    {
+      "subreddit": "MicrosoftFabric",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Real time capacity monitor alerts?",
+      "last_post_url": "https://www.reddit.com/r/MicrosoftFabric/comments/1ry50q0/real_time_capacity_monitor_alerts/",
+      "keyword_hits": 0
+    },
+    {
+      "subreddit": "AISystemsEngineering",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "How are companies turning internal documents and knowledge bases into usable AI systems?",
+      "last_post_url": "https://www.reddit.com/r/AISystemsEngineering/comments/1rxz8ud/how_are_companies_turning_internal_documents_and/",
+      "keyword_hits": 9
+    },
+    {
+      "subreddit": "modelcontextprotocol",
+      "last_post_date": "2026-03-16",
+      "days_since_last_post": 3,
+      "last_post_title": "Common ChatGPT app rejections (and how to fix them)",
+      "last_post_url": "https://www.reddit.com/r/modelcontextprotocol/comments/1rvk725/common_chatgpt_app_rejections_and_how_to_fix_them/",
+      "keyword_hits": 7
+    },
+    {
+      "subreddit": "vectordatabase",
+      "last_post_date": "2026-03-18",
+      "days_since_last_post": 1,
+      "last_post_title": "Elastic{ON} London 2026 Highlights",
+      "last_post_url": "https://www.reddit.com/r/vectordatabase/comments/1rxd2y8/elasticon_london_2026_highlights/",
+      "keyword_hits": 4
+    },
+    {
+      "subreddit": "BusinessIntelligence",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Created custom visualization on dataset about cost to sequence a human genome. All using Observable Plot on DataHub.io",
+      "last_post_url": "https://www.reddit.com/r/BusinessIntelligence/comments/1ry5cte/created_custom_visualization_on_dataset_about/",
+      "keyword_hits": 1
+    },
+    {
+      "subreddit": "snowflake",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Automated Documentation - tips?",
+      "last_post_url": "https://www.reddit.com/r/snowflake/comments/1ry0xk7/automated_documentation_tips/",
+      "keyword_hits": 3
+    },
+    {
+      "subreddit": "LangChain",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "LiteParse: Local Document Parsing for Agents",
+      "last_post_url": "https://www.reddit.com/r/LangChain/comments/1ry5zoq/liteparse_local_document_parsing_for_agents/",
+      "keyword_hits": 8
+    },
+    {
+      "subreddit": "dataengineersindia",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Help me with the resources and guidance",
+      "last_post_url": "https://www.reddit.com/r/dataengineersindia/comments/1ry6gu4/help_me_with_the_resources_and_guidance/",
+      "keyword_hits": 0
+    },
+    {
+      "subreddit": "analytics",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Anyone else tired of being pressured into AI adoption?",
+      "last_post_url": "https://www.reddit.com/r/analytics/comments/1ry4yks/anyone_else_tired_of_being_pressured_into_ai/",
+      "keyword_hits": 0
+    },
+    {
+      "subreddit": "datascience",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "AI is coming for the parts of the job that were holding you back",
+      "last_post_url": "https://www.reddit.com/r/datascience/comments/1ry73eb/ai_is_coming_for_the_parts_of_the_job_that_were/",
+      "keyword_hits": 1
+    },
+    {
+      "subreddit": "databricks",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Can Databricks Real-Time Mode Replace Flink? Demo + Deep Dive with Databricks PM Navneeth Nair",
+      "last_post_url": "https://www.reddit.com/r/databricks/comments/1ry3lfb/can_databricks_realtime_mode_replace_flink_demo/",
+      "keyword_hits": 4
+    },
+    {
+      "subreddit": "mlops",
+      "last_post_date": "2026-03-11",
+      "days_since_last_post": 8,
+      "last_post_title": "Passed NVIDIA InfiniBand NCP-IB Exam \u2013 My Preparation Experience",
+      "last_post_url": "https://www.reddit.com/r/mlops/comments/1rqny4p/passed_nvidia_infiniband_ncpib_exam_my/",
+      "keyword_hits": 9
+    },
+    {
+      "subreddit": "LanguageTechnology",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Informatik, KI-Agenten und Austausch: Ein Hallo aus der Welt der LLMs",
+      "last_post_url": "https://www.reddit.com/r/LanguageTechnology/comments/1ry1jpw/informatik_kiagenten_und_austausch_ein_hallo_aus/",
+      "keyword_hits": 5
+    },
+    {
+      "subreddit": "PowerBI",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Image from Microsoft List to Power BI",
+      "last_post_url": "https://www.reddit.com/r/PowerBI/comments/1ry49a2/image_from_microsoft_list_to_power_bi/",
+      "keyword_hits": 0
+    },
+    {
+      "subreddit": "AIGRC",
+      "last_post_date": "2026-03-17",
+      "days_since_last_post": 2,
+      "last_post_title": "AI Chatbot Risk in Financial Institution",
+      "last_post_url": "https://www.reddit.com/r/AIGRC/comments/1rvz6po/ai_chatbot_risk_in_financial_institution/",
+      "keyword_hits": 3
+    },
+    {
+      "subreddit": "AIgovernance",
+      "last_post_date": "2026-03-19",
+      "days_since_last_post": 0,
+      "last_post_title": "Who should actually control advanced AI: governments, companies, or independent bodies?",
+      "last_post_url": "https://www.reddit.com/r/AIgovernance/comments/1rxyiud/who_should_actually_control_advanced_ai/",
+      "keyword_hits": 4
+    },
+    {
+      "subreddit": "AI_Governance",
+      "last_post_date": "2026-03-18",
+      "days_since_last_post": 1,
+      "last_post_title": "AI governance system protocol",
+      "last_post_url": "https://www.reddit.com/r/AI_Governance/comments/1rxi45g/ai_governance_system_protocol/",
+      "keyword_hits": 9
+    },
+    {
+      "subreddit": "DataCentricAI",
+      "last_post_date": "2026-03-06",
+      "days_since_last_post": 13,
+      "last_post_title": "Public data and ai",
+      "last_post_url": "https://www.reddit.com/r/DataCentricAI/comments/1rmjtsq/public_data_and_ai/",
+      "keyword_hits": 1
+    }
+  ]
+}
